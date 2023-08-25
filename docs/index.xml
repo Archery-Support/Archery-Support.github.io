@@ -1,12 +1,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Navidrome – Documentation</title>
-    <link>https://www.navidrome.org/docs/</link>
-    <description>Recent content in Documentation on Navidrome</description>
+    <title>Archery Support System – Documentation</title>
+    <link>https://archery-support.github.io/docs/</link>
+    <description>Recent content in Documentation on Archery Support System</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     
-	  <atom:link href="https://www.navidrome.org/docs/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="https://archery-support.github.io/docs/index.xml" rel="self" type="application/rss+xml" />
     
     
       
@@ -16,10 +16,10 @@
     
     <item>
       <title>Docs: Development Environment</title>
-      <link>https://www.navidrome.org/docs/developers/dev-environment/</link>
+      <link>https://archery-support.github.io/docs/developers/dev-environment/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www.navidrome.org/docs/developers/dev-environment/</guid>
+      <guid>https://archery-support.github.io/docs/developers/dev-environment/</guid>
       <description>
         
         
@@ -72,7 +72,7 @@
 &lt;p&gt;Test installation: &lt;code&gt;make buildall&lt;/code&gt;. This command should create a &lt;code&gt;navidrome&lt;/code&gt; executable in the project&amp;rsquo;s folder&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Create a &lt;code&gt;navidrome.toml&lt;/code&gt; config file in the project&amp;rsquo;s folder with (&lt;a href=&#34;https://www.navidrome.org/docs/usage/configuration-options/#available-options&#34;&gt;at least&lt;/a&gt;) the following options:&lt;/p&gt;
+&lt;p&gt;Create a &lt;code&gt;navidrome.toml&lt;/code&gt; config file in the project&amp;rsquo;s folder with (&lt;a href=&#34;https://archery-support.github.io/docs/usage/configuration-options/#available-options&#34;&gt;at least&lt;/a&gt;) the following options:&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-toml&#34; data-lang=&#34;toml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Set your music folder, preferable a specific development music library with few songs,&lt;/span&gt;
@@ -120,7 +120,7 @@ Navidrome automatically in your browser, using the URL http://localhost:4533/&lt
 &lt;ol&gt;
 &lt;li&gt;Because of &lt;a href=&#34;https://github.com/microsoft/WSL/issues/4885&#34;&gt;this WSL issue&lt;/a&gt; you need to use your network IP address to be able to login to Navidrome in development mode. Otherwise you will get an &lt;code&gt;Error: Unauthorized&lt;/code&gt; when logging in. You can see your network IP address after running &lt;code&gt;make dev&lt;/code&gt;.&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;Now that you have a working instance of Linux running on your machine, follow the steps above for &lt;a href=&#34;https://www.navidrome.org/docs/developers/dev-environment/#unix-based-systems-linux-macos-bsd-&#34;&gt;Unix-based system&lt;/a&gt; in the VSCode terminal. For more information on working with VSCode+WSL, check their &lt;a href=&#34;https://code.visualstudio.com/docs/remote/wsl&#34;&gt;documentation&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Now that you have a working instance of Linux running on your machine, follow the steps above for &lt;a href=&#34;https://archery-support.github.io/docs/developers/dev-environment/#unix-based-systems-linux-macos-bsd-&#34;&gt;Unix-based system&lt;/a&gt; in the VSCode terminal. For more information on working with VSCode+WSL, check their &lt;a href=&#34;https://code.visualstudio.com/docs/remote/wsl&#34;&gt;documentation&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;troubleshooting&#34;&gt;Troubleshooting&lt;/h2&gt;
 &lt;h3 id=&#34;system-limit-for-number-of-file-watchers-reached&#34;&gt;System limit for number of file watchers reached&lt;/h3&gt;
 &lt;p&gt;If you encounter the &lt;code&gt;Error: ENOSPC: System limit for number of file watchers reached, watch&lt;/code&gt; while running &lt;code&gt;make dev&lt;/code&gt; on Linux systems, then your system is maxing out the number of files that can be &amp;ldquo;watched&amp;rdquo; for changes at one time.&lt;/p&gt;
@@ -132,10 +132,10 @@ Navidrome automatically in your browser, using the URL http://localhost:4533/&lt
     
     <item>
       <title>Docs: Navidrome Configuration Options</title>
-      <link>https://www.navidrome.org/docs/usage/configuration-options/</link>
+      <link>https://archery-support.github.io/docs/usage/configuration-options/</link>
       <pubDate>Fri, 06 Jan 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://www.navidrome.org/docs/usage/configuration-options/</guid>
+      <guid>https://archery-support.github.io/docs/usage/configuration-options/</guid>
       <description>
         
         
@@ -418,13 +418,13 @@ make it all uppercase. Ex: &lt;code&gt;ND_LOGLEVEL=debug&lt;/code&gt;. See below
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td&gt;AuthRequestLimit&lt;a href=&#34;https://www.navidrome.org/docs/usage/security#limit-login-attempts&#34; title=&#34;Login Limit Rating&#34;&gt;*&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;AuthRequestLimit&lt;a href=&#34;https://archery-support.github.io/docs/usage/security#limit-login-attempts&#34; title=&#34;Login Limit Rating&#34;&gt;*&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;code&gt;ND_AUTHREQUESTLIMIT&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;How many login requests can be processed from a single IP during the &lt;code&gt;AuthWindowLength&lt;/code&gt;. Set to &lt;code&gt;0&lt;/code&gt; to disable the limit rater&lt;/td&gt;
 &lt;td&gt;&lt;code&gt;5&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;AuthWindowLength&lt;a href=&#34;https://www.navidrome.org/docs/usage/security#limit-login-attempts&#34; title=&#34;Login Limit Rating&#34;&gt;*&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;AuthWindowLength&lt;a href=&#34;https://archery-support.github.io/docs/usage/security#limit-login-attempts&#34; title=&#34;Login Limit Rating&#34;&gt;*&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;code&gt;ND_AUTHWINDOWLENGTH&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;Window Length for the authentication rate limit&lt;/td&gt;
 &lt;td&gt;&lt;code&gt;&amp;quot;20s&amp;quot;&lt;/code&gt;&lt;/td&gt;
@@ -508,7 +508,7 @@ make it all uppercase. Ex: &lt;code&gt;ND_LOGLEVEL=debug&lt;/code&gt;. See below
 &lt;td&gt;&lt;code&gt;true&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;EnableMediaFileCoverArt&lt;a href=&#34;https://www.navidrome.org/docs/usage/artwork/#mediafiles&#34;&gt;*&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;EnableMediaFileCoverArt&lt;a href=&#34;https://archery-support.github.io/docs/usage/artwork/#mediafiles&#34;&gt;*&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;code&gt;ND_ENABLEMEDIAFILECOVERART&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;If set to false, it will return the album CoverArt when a song CoverArt is requested&lt;/td&gt;
 &lt;td&gt;&lt;code&gt;true&lt;/code&gt;&lt;/td&gt;
@@ -532,7 +532,7 @@ make it all uppercase. Ex: &lt;code&gt;ND_LOGLEVEL=debug&lt;/code&gt;. See below
 &lt;td&gt;&lt;code&gt;true&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;EnableTranscodingConfig&lt;a href=&#34;https://www.navidrome.org/docs/usage/security#transcoding-configuration&#34; title=&#34;Transcoding configuration&#34;&gt;*&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;EnableTranscodingConfig&lt;a href=&#34;https://archery-support.github.io/docs/usage/security#transcoding-configuration&#34; title=&#34;Transcoding configuration&#34;&gt;*&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;code&gt;ND_ENABLETRANSCODINGCONFIG&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;Enables transcoding configuration in the UI&lt;/td&gt;
 &lt;td&gt;&lt;code&gt;false&lt;/code&gt;&lt;/td&gt;
@@ -610,9 +610,9 @@ make it all uppercase. Ex: &lt;code&gt;ND_LOGLEVEL=debug&lt;/code&gt;. See below
 &lt;td&gt;&lt;code&gt;100&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;PasswordEncryptionKey&lt;a href=&#34;https://www.navidrome.org/docs/usage/security/#encrypted-passwords&#34;&gt;*&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;PasswordEncryptionKey&lt;a href=&#34;https://archery-support.github.io/docs/usage/security/#encrypted-passwords&#34;&gt;*&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;code&gt;ND_PASSWORDENCRYPTIONKEY&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Passphrase used to encrypt passwords in the DB. Click &lt;a href=&#34;https://www.navidrome.org/docs/usage/security/#encrypted-passwords&#34;&gt;here&lt;/a&gt; for details&lt;/td&gt;
+&lt;td&gt;Passphrase used to encrypt passwords in the DB. Click &lt;a href=&#34;https://archery-support.github.io/docs/usage/security/#encrypted-passwords&#34;&gt;here&lt;/a&gt; for details&lt;/td&gt;
 &lt;td&gt;-&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -640,13 +640,13 @@ make it all uppercase. Ex: &lt;code&gt;ND_LOGLEVEL=debug&lt;/code&gt;. See below
 &lt;td&gt;&lt;code&gt;false&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;ReverseProxyUserHeader&lt;a href=&#34;https://www.navidrome.org/docs/usage/security/#reverse-proxy-authentication&#34;&gt;*&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;ReverseProxyUserHeader&lt;a href=&#34;https://archery-support.github.io/docs/usage/security/#reverse-proxy-authentication&#34;&gt;*&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;code&gt;ND_REVERSEPROXYUSERHEADER&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;HTTP header containing user name from authenticated proxy&lt;/td&gt;
 &lt;td&gt;&lt;code&gt;&amp;quot;Remote-User&amp;quot;&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;ReverseProxyWhitelist&lt;a href=&#34;https://www.navidrome.org/docs/usage/security/#reverse-proxy-authentication&#34;&gt;*&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;ReverseProxyWhitelist&lt;a href=&#34;https://archery-support.github.io/docs/usage/security/#reverse-proxy-authentication&#34;&gt;*&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;code&gt;ND_REVERSEPROXYWHITELIST&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;Comma separated list of IP CIDRs which are allowed to use reverse proxy authentication, empty means &amp;ldquo;deny all&amp;rdquo;&lt;/td&gt;
 &lt;td&gt;&lt;em&gt;Empty&lt;/em&gt;&lt;/td&gt;
@@ -682,13 +682,13 @@ make it all uppercase. Ex: &lt;code&gt;ND_LOGLEVEL=debug&lt;/code&gt;. See below
 &lt;td&gt;&lt;code&gt;&amp;quot;24h&amp;quot;&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;Spotify.ID&lt;a href=&#34;https://www.navidrome.org/docs/usage/external-integrations/#spotify&#34;&gt;*&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Spotify.ID&lt;a href=&#34;https://archery-support.github.io/docs/usage/external-integrations/#spotify&#34;&gt;*&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;code&gt;ND_SPOTIFY_ID&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;Spotify Client ID. Required if you want Artist images&lt;/td&gt;
 &lt;td&gt;&lt;em&gt;Empty&lt;/em&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;Spotify.Secret&lt;a href=&#34;https://www.navidrome.org/docs/usage/external-integrations/#spotify&#34;&gt;*&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Spotify.Secret&lt;a href=&#34;https://archery-support.github.io/docs/usage/external-integrations/#spotify&#34;&gt;*&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;code&gt;ND_SPOTIFY_SECRET&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;Spotify Client Secret. Required if you want Artist images&lt;/td&gt;
 &lt;td&gt;&lt;em&gt;Empty&lt;/em&gt;&lt;/td&gt;
@@ -733,10 +733,10 @@ unit is bytes.  Note: &amp;ldquo;1KB&amp;rdquo; == &amp;ldquo;1000&amp;rdquo;, &
     
     <item>
       <title>Docs: Creating New Themes</title>
-      <link>https://www.navidrome.org/docs/developers/creating-themes/</link>
+      <link>https://archery-support.github.io/docs/developers/creating-themes/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www.navidrome.org/docs/developers/creating-themes/</guid>
+      <guid>https://archery-support.github.io/docs/developers/creating-themes/</guid>
       <description>
         
         
@@ -765,21 +765,21 @@ Also, don&amp;rsquo;t forget to add lots of screenshots!&lt;/p&gt;
     
     <item>
       <title>Docs: Artwork location resolution</title>
-      <link>https://www.navidrome.org/docs/usage/artwork/</link>
+      <link>https://archery-support.github.io/docs/usage/artwork/</link>
       <pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://www.navidrome.org/docs/usage/artwork/</guid>
+      <guid>https://archery-support.github.io/docs/usage/artwork/</guid>
       <description>
         
         
         &lt;h2 id=&#34;albums&#34;&gt;Albums&lt;/h2&gt;
-&lt;p&gt;CoverArt fetching for albums is controlled by the &lt;code&gt;CoverArtPriority&lt;/code&gt; &lt;a href=&#34;https://www.navidrome.org/docs/usage/configuration-options&#34;&gt;config option&lt;/a&gt;.
+&lt;p&gt;CoverArt fetching for albums is controlled by the &lt;code&gt;CoverArtPriority&lt;/code&gt; &lt;a href=&#34;https://archery-support.github.io/docs/usage/configuration-options&#34;&gt;config option&lt;/a&gt;.
 This is a comma-separated list of places to look for album art images.
 The default is &lt;code&gt;cover.*, folder.*, front.*, embedded, external&lt;/code&gt;, meaning:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;First try to find a &lt;code&gt;cover.*&lt;/code&gt;, &lt;code&gt;folder.*&lt;/code&gt; or &lt;code&gt;front.*&lt;/code&gt; image in the album folder(s)&lt;/li&gt;
 &lt;li&gt;If not found, try to read an embedded image from one of the mediafiles for that album&lt;/li&gt;
-&lt;li&gt;If not found, try to fetch it from an &lt;a href=&#34;https://www.navidrome.org/docs/usage/external-integrations&#34;&gt;external service&lt;/a&gt; (currently only Last.fm)&lt;/li&gt;
+&lt;li&gt;If not found, try to fetch it from an &lt;a href=&#34;https://archery-support.github.io/docs/usage/external-integrations&#34;&gt;external service&lt;/a&gt; (currently only Last.fm)&lt;/li&gt;
 &lt;li&gt;If not found, use the cover placeholder (blue record image)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;mediafiles&#34;&gt;MediaFiles&lt;/h2&gt;
@@ -816,10 +816,10 @@ If for any reason it cannot be generated, it will use the album cover placeholde
     
     <item>
       <title>Docs: Translations</title>
-      <link>https://www.navidrome.org/docs/developers/translations/</link>
+      <link>https://archery-support.github.io/docs/developers/translations/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www.navidrome.org/docs/developers/translations/</guid>
+      <guid>https://archery-support.github.io/docs/developers/translations/</guid>
       <description>
         
         
@@ -854,10 +854,10 @@ translation efforts coordination and to get further instructions.&lt;/p&gt;
     
     <item>
       <title>Docs: External Integrations</title>
-      <link>https://www.navidrome.org/docs/usage/external-integrations/</link>
+      <link>https://archery-support.github.io/docs/usage/external-integrations/</link>
       <pubDate>Wed, 04 Jan 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://www.navidrome.org/docs/usage/external-integrations/</guid>
+      <guid>https://archery-support.github.io/docs/usage/external-integrations/</guid>
       <description>
         
         
@@ -868,19 +868,19 @@ To obtain these values, create a free account in Spotify, then follow these step
 &lt;li&gt;Click on the &amp;ldquo;Create an App&amp;rdquo; button in Spotify&amp;rsquo;s Developer dashboard: &lt;a href=&#34;https://developer.spotify.com/dashboard/applications&#34;&gt;https://developer.spotify.com/dashboard/applications&lt;/a&gt;:&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p align=&#34;center&#34;&gt;
-&lt;img width=&#34;500&#34; src=&#34;https://www.navidrome.org/screenshots/spotify-dashboard.png&#34;&gt;
+&lt;img width=&#34;500&#34; src=&#34;https://archery-support.github.io/screenshots/spotify-dashboard.png&#34;&gt;
 &lt;/p&gt;
 &lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;Fill all fields and click on the &amp;ldquo;Create&amp;rdquo; button:&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p align=&#34;center&#34;&gt;
-&lt;img width=&#34;500&#34; src=&#34;https://www.navidrome.org/screenshots/spotify-create-app.png&#34;&gt;
+&lt;img width=&#34;500&#34; src=&#34;https://archery-support.github.io/screenshots/spotify-create-app.png&#34;&gt;
 &lt;/p&gt;
 &lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;Copy the values to your &lt;a href=&#34;https://www.navidrome.org/docs/usage/configuration-options#configuration-file&#34;&gt;configuration file&lt;/a&gt; (or set them as environment variables):&lt;/li&gt;
+&lt;li&gt;Copy the values to your &lt;a href=&#34;https://archery-support.github.io/docs/usage/configuration-options#configuration-file&#34;&gt;configuration file&lt;/a&gt; (or set them as environment variables):&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p align=&#34;center&#34;&gt;
-&lt;img width=&#34;500&#34; src=&#34;https://www.navidrome.org/screenshots/spotify-app-created.png&#34;&gt;
+&lt;img width=&#34;500&#34; src=&#34;https://archery-support.github.io/screenshots/spotify-app-created.png&#34;&gt;
 &lt;/p&gt;
 &lt;h2 id=&#34;lastfm&#34;&gt;Last.fm&lt;/h2&gt;
 &lt;p&gt;Navidrome can use Last.fm to retrieve artists biographies, artists top songs, similar artists and album covers.
@@ -890,16 +890,16 @@ It works out-of-the-box, but if you want to setup your own API-KEY, follow these
 &lt;li&gt;Go to &lt;a href=&#34;https://www.last.fm/api/account/create&#34;&gt;https://www.last.fm/api/account/create&lt;/a&gt; and create an API account. Only the &lt;em&gt;Application Name&lt;/em&gt; field is mandatory:&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p align=&#34;center&#34;&gt;
-&lt;img width=&#34;500&#34; src=&#34;https://www.navidrome.org/screenshots/lastfm-create-account.png&#34;&gt;
+&lt;img width=&#34;500&#34; src=&#34;https://archery-support.github.io/screenshots/lastfm-create-account.png&#34;&gt;
 &lt;/p&gt;
 &lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;After submitting the form, you can get the &lt;em&gt;API Key&lt;/em&gt; and &lt;em&gt;Shared Secret&lt;/em&gt; from the &lt;em&gt;Account Created&lt;/em&gt; page:&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p align=&#34;center&#34;&gt;
-&lt;img width=&#34;500&#34; src=&#34;https://www.navidrome.org/screenshots/lastfm-account-created.png&#34;&gt;
+&lt;img width=&#34;500&#34; src=&#34;https://archery-support.github.io/screenshots/lastfm-account-created.png&#34;&gt;
 &lt;/p&gt;
 &lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;Copy the values above to your &lt;a href=&#34;https://www.navidrome.org/docs/usage/configuration-options#configuration-file&#34;&gt;configuration file&lt;/a&gt; (or set them as environment variables)&lt;/li&gt;
+&lt;li&gt;Copy the values above to your &lt;a href=&#34;https://archery-support.github.io/docs/usage/configuration-options#configuration-file&#34;&gt;configuration file&lt;/a&gt; (or set them as environment variables)&lt;/li&gt;
 &lt;/ol&gt;
 
       </description>
@@ -907,10 +907,10 @@ It works out-of-the-box, but if you want to setup your own API-KEY, follow these
     
     <item>
       <title>Docs: Subsonic API Compatibility</title>
-      <link>https://www.navidrome.org/docs/developers/subsonic-api/</link>
+      <link>https://archery-support.github.io/docs/developers/subsonic-api/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www.navidrome.org/docs/developers/subsonic-api/</guid>
+      <guid>https://archery-support.github.io/docs/developers/subsonic-api/</guid>
       <description>
         
         
@@ -992,31 +992,31 @@ specifies IDs as strings, some clients insist in converting IDs to integers&lt;/
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;getArtistInfo&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Requires &lt;a href=&#34;https://www.navidrome.org/docs/usage/external-integrations/&#34;&gt;Last.fm and Spotify integration&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Requires &lt;a href=&#34;https://archery-support.github.io/docs/usage/external-integrations/&#34;&gt;Last.fm and Spotify integration&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;getArtistInfo2&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Requires &lt;a href=&#34;https://www.navidrome.org/docs/usage/external-integrations/&#34;&gt;Last.fm and Spotify integration&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Requires &lt;a href=&#34;https://archery-support.github.io/docs/usage/external-integrations/&#34;&gt;Last.fm and Spotify integration&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;getAlbumInfo&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Requires &lt;a href=&#34;https://www.navidrome.org/docs/usage/external-integrations/&#34;&gt;Last.fm and Spotify integration&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Requires &lt;a href=&#34;https://archery-support.github.io/docs/usage/external-integrations/&#34;&gt;Last.fm and Spotify integration&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;getAlbumInfo2&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Requires &lt;a href=&#34;https://www.navidrome.org/docs/usage/external-integrations/&#34;&gt;Last.fm and Spotify integration&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Requires &lt;a href=&#34;https://archery-support.github.io/docs/usage/external-integrations/&#34;&gt;Last.fm and Spotify integration&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;getTopSongs&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Requires &lt;a href=&#34;https://www.navidrome.org/docs/usage/external-integrations/&#34;&gt;Last.fm integration&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Requires &lt;a href=&#34;https://archery-support.github.io/docs/usage/external-integrations/&#34;&gt;Last.fm integration&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;getSimilarSongs&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Requires &lt;a href=&#34;https://www.navidrome.org/docs/usage/external-integrations/&#34;&gt;Last.fm integration&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Requires &lt;a href=&#34;https://archery-support.github.io/docs/usage/external-integrations/&#34;&gt;Last.fm integration&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;getSimilarSongs2&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Requires &lt;a href=&#34;https://www.navidrome.org/docs/usage/external-integrations/&#34;&gt;Last.fm integration&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Requires &lt;a href=&#34;https://archery-support.github.io/docs/usage/external-integrations/&#34;&gt;Last.fm integration&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -1286,10 +1286,10 @@ specifies IDs as strings, some clients insist in converting IDs to integers&lt;/
     
     <item>
       <title>Docs: Sharing</title>
-      <link>https://www.navidrome.org/docs/usage/sharing/</link>
+      <link>https://archery-support.github.io/docs/usage/sharing/</link>
       <pubDate>Mon, 02 Jan 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://www.navidrome.org/docs/usage/sharing/</guid>
+      <guid>https://archery-support.github.io/docs/usage/sharing/</guid>
       <description>
         
         
@@ -1305,7 +1305,7 @@ specifies IDs as strings, some clients insist in converting IDs to integers&lt;/
 &lt;p&gt;Navidrome has a &amp;ldquo;Sharing&amp;rdquo; feature which allows users to generate a shareable link for a track, album, artist, or playlist. This link can then be sent to friends, allowing them to listen or download the music without having an account on your Navidrome instance.&lt;/p&gt;
 &lt;h3 id=&#34;enabling-the-sharing-feature&#34;&gt;Enabling the Sharing Feature&lt;/h3&gt;
 &lt;p&gt;As of version 0.49.3, the Sharing feature is disabled by default. To enable it, you need to adjust your Navidrome
-&lt;a href=&#34;https://www.navidrome.org/docs/usage/configuration-options&#34;&gt;configuration&lt;/a&gt;. In your configuration file, set &lt;code&gt;EnableSharing=true&lt;/code&gt;, or set the
+&lt;a href=&#34;https://archery-support.github.io/docs/usage/configuration-options&#34;&gt;configuration&lt;/a&gt;. In your configuration file, set &lt;code&gt;EnableSharing=true&lt;/code&gt;, or set the
 environment variable &lt;code&gt;ND_ENABLESHARING=true&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;Once the Sharing feature is enabled, all users will have access to all existing shares. This includes the ability to change the description and expiration date of the shares, as well as the capability to create new shares.&lt;/p&gt;
 &lt;p&gt;Please note that at this time, there is no way to set specific sharing permissions per user. This means that once the Sharing feature is enabled, all users have equal access and capabilities related to sharing. This includes the ability to view, modify, and create shares.&lt;/p&gt;
@@ -1315,7 +1315,7 @@ environment variable &lt;code&gt;ND_ENABLESHARING=true&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;When browsing your music collection, you will notice a &amp;ldquo;Share&amp;rdquo; button or menu item available for each item, be it a track, album, artist, or playlist. To share an item, simply click on this &amp;ldquo;Share&amp;rdquo; button.&lt;/p&gt;
 &lt;p&gt;Upon clicking the &amp;ldquo;Share&amp;rdquo; button, a dialog box will appear, allowing you to configure your share. This includes setting a description other configurations for the share.&lt;/p&gt;
 &lt;p align=&#34;center&#34;&gt;
-&lt;img width=&#34;400&#34; src=&#34;https://www.navidrome.org/screenshots/share-dialog.png&#34;&gt;
+&lt;img width=&#34;400&#34; src=&#34;https://archery-support.github.io/screenshots/share-dialog.png&#34;&gt;
 &lt;/p&gt;
 &lt;p&gt;Once you have configured your share as desired, click the &amp;ldquo;Share&amp;rdquo; button. This will generate a unique shareable link, which you can then copy and share with your friends.&lt;/p&gt;
 &lt;p&gt;The generated sharable links will be in the following format: &lt;code&gt;http://yourserver.com/share/XXXXXXXXXX&lt;/code&gt;. If you have Navidrome behind a reverse proxy, ensure you allow traffic to &lt;code&gt;/share&lt;/code&gt;.&lt;/p&gt;
@@ -1325,7 +1325,7 @@ See the &lt;a href=&#34;https://opensubsonic.netlify.app/categories/sharing/&#34
 &lt;h3 id=&#34;meta-tags-to-html&#34;&gt;Meta-tags to HTML&lt;/h3&gt;
 &lt;p&gt;Meta-tags are added to the HTML to provide some information about the shared music on chat platforms. Example of a link shared in Discord:&lt;/p&gt;
 &lt;p align=&#34;center&#34;&gt;
-&lt;img width=&#34;400&#34; src=&#34;https://www.navidrome.org/screenshots/share-meta.png&#34;&gt;
+&lt;img width=&#34;400&#34; src=&#34;https://archery-support.github.io/screenshots/share-meta.png&#34;&gt;
 &lt;/p&gt;
 
       </description>
@@ -1333,10 +1333,10 @@ See the &lt;a href=&#34;https://opensubsonic.netlify.app/categories/sharing/&#34
     
     <item>
       <title>Docs: Monitoring Navidrome</title>
-      <link>https://www.navidrome.org/docs/usage/monitoring/</link>
+      <link>https://archery-support.github.io/docs/usage/monitoring/</link>
       <pubDate>Tue, 03 Jan 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://www.navidrome.org/docs/usage/monitoring/</guid>
+      <guid>https://archery-support.github.io/docs/usage/monitoring/</guid>
       <description>
         
         
@@ -1344,7 +1344,7 @@ See the &lt;a href=&#34;https://opensubsonic.netlify.app/categories/sharing/&#34
 Prometheus/&lt;a href=&#34;https://github.com/OpenObservability/OpenMetrics/blob/main/specification/OpenMetrics.md&#34;&gt;OpenMetrics&lt;/a&gt;
 standard. Example Grafana dashboard:&lt;/p&gt;
 &lt;p align=&#34;center&#34;&gt;
-&lt;img width=&#34;1000&#34; src=&#34;https://www.navidrome.org/screenshots/grafana-example.png&#34;&gt;
+&lt;img width=&#34;1000&#34; src=&#34;https://archery-support.github.io/screenshots/grafana-example.png&#34;&gt;
 &lt;/p&gt;
 &lt;h3 id=&#34;configuration&#34;&gt;Configuration&lt;/h3&gt;
 &lt;p&gt;You need to set &lt;code&gt;ND_PROMETHEUS_ENABLED&lt;/code&gt; to enable Prometheus metrics endpoint.
@@ -1383,10 +1383,10 @@ can be found &lt;a href=&#34;https://github.com/Einsteinish/Docker-Compose-Prome
     
     <item>
       <title>Docs: Security Considerations</title>
-      <link>https://www.navidrome.org/docs/usage/security/</link>
+      <link>https://archery-support.github.io/docs/usage/security/</link>
       <pubDate>Mon, 02 Jan 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://www.navidrome.org/docs/usage/security/</guid>
+      <guid>https://archery-support.github.io/docs/usage/security/</guid>
       <description>
         
         
@@ -1438,10 +1438,10 @@ setting &lt;code&gt;AuthRequestLimit&lt;/code&gt; to &lt;code&gt;0&lt;/code&gt;,
     
     <item>
       <title>Docs: Installing with Docker</title>
-      <link>https://www.navidrome.org/docs/installation/docker/</link>
+      <link>https://archery-support.github.io/docs/installation/docker/</link>
       <pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://www.navidrome.org/docs/installation/docker/</guid>
+      <guid>https://archery-support.github.io/docs/installation/docker/</guid>
       <description>
         
         
@@ -1485,10 +1485,10 @@ values in the example are already the defaults&lt;/p&gt;
 &lt;li&gt;The &lt;code&gt;user&lt;/code&gt; argument should ideally reflect the &lt;code&gt;UID:GID&lt;/code&gt; of the owner of the music library to avoid permission issues. For testing purpose you could omit this directive, but as a rule of thumb you should not run a production container as &lt;code&gt;root&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;Remember to change the &lt;code&gt;volumes&lt;/code&gt; paths to point to your local paths. &lt;code&gt;/data&lt;/code&gt; is where Navidrome
 will store its DB and cache, &lt;code&gt;/music&lt;/code&gt; is where your music files are stored.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.navidrome.org/docs/usage/configuration-options/&#34;&gt;Configuration options&lt;/a&gt; can be customized with environment
+&lt;li&gt;&lt;a href=&#34;https://archery-support.github.io/docs/usage/configuration-options/&#34;&gt;Configuration options&lt;/a&gt; can be customized with environment
 variables as needed. For &lt;code&gt;docker-compose&lt;/code&gt; just add them to the &lt;code&gt;environment&lt;/code&gt; section or the yml
 file. For &lt;code&gt;docker&lt;/code&gt; cli use the &lt;code&gt;-e&lt;/code&gt; parameter. Ex: &lt;code&gt;-e ND_SESSIONTIMEOUT=24h&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;If you want to use a &lt;a href=&#34;https://www.navidrome.org/docs/usage/configuration-options/#configuration-file&#34;&gt;configuration file&lt;/a&gt; with Navidrome running in Docker,
+&lt;li&gt;If you want to use a &lt;a href=&#34;https://archery-support.github.io/docs/usage/configuration-options/#configuration-file&#34;&gt;configuration file&lt;/a&gt; with Navidrome running in Docker,
 you can create a &lt;code&gt;navidrome.toml&lt;/code&gt; config file in the &lt;code&gt;/data&lt;/code&gt; folder and set the option &lt;code&gt;ND_CONFIGFILE=/data/navidrome.toml&lt;/code&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -1497,10 +1497,10 @@ you can create a &lt;code&gt;navidrome.toml&lt;/code&gt; config file in the &lt;
     
     <item>
       <title>Docs: Linux Install</title>
-      <link>https://www.navidrome.org/docs/installation/linux/</link>
+      <link>https://archery-support.github.io/docs/installation/linux/</link>
       <pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://www.navidrome.org/docs/installation/linux/</guid>
+      <guid>https://archery-support.github.io/docs/installation/linux/</guid>
       <description>
         
         
@@ -1594,10 +1594,10 @@ you can create a &lt;code&gt;navidrome.toml&lt;/code&gt; config file in the &lt;
     
     <item>
       <title>Docs: Windows Install</title>
-      <link>https://www.navidrome.org/docs/installation/windows/</link>
+      <link>https://archery-support.github.io/docs/installation/windows/</link>
       <pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://www.navidrome.org/docs/installation/windows/</guid>
+      <guid>https://archery-support.github.io/docs/installation/windows/</guid>
       <description>
         
         
@@ -1676,10 +1676,10 @@ If you need to have access to your user account&amp;rsquo;s &lt;code&gt;PATH&lt;
     
     <item>
       <title>Docs: macOS Install</title>
-      <link>https://www.navidrome.org/docs/installation/macos/</link>
+      <link>https://archery-support.github.io/docs/installation/macos/</link>
       <pubDate>Wed, 04 Jan 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://www.navidrome.org/docs/installation/macos/</guid>
+      <guid>https://archery-support.github.io/docs/installation/macos/</guid>
       <description>
         
         
@@ -1725,10 +1725,10 @@ We define a service as shown below and save that in a file named &lt;code&gt;nav
     
     <item>
       <title>Docs: FreeBSD Install</title>
-      <link>https://www.navidrome.org/docs/installation/freebsd/</link>
+      <link>https://archery-support.github.io/docs/installation/freebsd/</link>
       <pubDate>Tue, 03 Jan 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://www.navidrome.org/docs/installation/freebsd/</guid>
+      <guid>https://archery-support.github.io/docs/installation/freebsd/</guid>
       <description>
         
         
@@ -1775,10 +1775,10 @@ You can easily adjust this using the &lt;code&gt;sysrc&lt;/code&gt; tool:&lt;/p&
     
     <item>
       <title>Docs: Community Maintained Packages</title>
-      <link>https://www.navidrome.org/docs/installation/packages/</link>
+      <link>https://archery-support.github.io/docs/installation/packages/</link>
       <pubDate>Mon, 01 Feb 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://www.navidrome.org/docs/installation/packages/</guid>
+      <guid>https://archery-support.github.io/docs/installation/packages/</guid>
       <description>
         
         
@@ -1855,10 +1855,10 @@ there are some packages created and maintained by the community, that can simpli
     
     <item>
       <title>Docs: Managed Hosting</title>
-      <link>https://www.navidrome.org/docs/installation/managed/</link>
+      <link>https://archery-support.github.io/docs/installation/managed/</link>
       <pubDate>Sun, 10 Jan 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://www.navidrome.org/docs/installation/managed/</guid>
+      <guid>https://archery-support.github.io/docs/installation/managed/</guid>
       <description>
         
         
@@ -1869,7 +1869,7 @@ don&amp;rsquo;t want to manage your own server.&lt;/p&gt;
 
 &lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;
 &lt;p&gt;&lt;a href=&#34;https://www.pikapods.com/&#34;&gt;PikaPods&lt;/a&gt; has partnered with us to offer you an &lt;strong&gt;officially
-supported, cloud-hosted solution&lt;/strong&gt;&lt;a href=&#34;https://www.navidrome.org/docs/faq/#which-cloud-providers-help-fund-the-project-with-a-revenue-share&#34;&gt;*&lt;/a&gt;.&lt;/p&gt;
+supported, cloud-hosted solution&lt;/strong&gt;&lt;a href=&#34;https://archery-support.github.io/docs/faq/#which-cloud-providers-help-fund-the-project-with-a-revenue-share&#34;&gt;*&lt;/a&gt;.&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -1882,10 +1882,10 @@ Includes daily backups and regular app updates.&lt;/p&gt;
     
     <item>
       <title>Docs: Build from sources</title>
-      <link>https://www.navidrome.org/docs/installation/build-from-source/</link>
+      <link>https://archery-support.github.io/docs/installation/build-from-source/</link>
       <pubDate>Tue, 05 Jan 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://www.navidrome.org/docs/installation/build-from-source/</guid>
+      <guid>https://archery-support.github.io/docs/installation/build-from-source/</guid>
       <description>
         
         

@@ -1,12 +1,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Navidrome – About Navidrome</title>
-    <link>https://www.navidrome.org/about/</link>
-    <description>Recent content in About Navidrome on Navidrome</description>
+    <title>Archery Support System – About Archery Support System</title>
+    <link>https://archery-support.github.io/about/</link>
+    <description>Recent content in About Archery Support System on Archery Support System</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     
-	  <atom:link href="https://www.navidrome.org/about/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="https://archery-support.github.io/about/index.xml" rel="self" type="application/rss+xml" />
     
     
       

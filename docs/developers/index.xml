@@ -1,12 +1,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Navidrome – Developers</title>
-    <link>https://www.navidrome.org/docs/developers/</link>
-    <description>Recent content in Developers on Navidrome</description>
+    <title>Archery Support System – Developers</title>
+    <link>https://archery-support.github.io/docs/developers/</link>
+    <description>Recent content in Developers on Archery Support System</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     
-	  <atom:link href="https://www.navidrome.org/docs/developers/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="https://archery-support.github.io/docs/developers/index.xml" rel="self" type="application/rss+xml" />
     
     
       
@@ -16,10 +16,10 @@
     
     <item>
       <title>Docs: Development Environment</title>
-      <link>https://www.navidrome.org/docs/developers/dev-environment/</link>
+      <link>https://archery-support.github.io/docs/developers/dev-environment/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www.navidrome.org/docs/developers/dev-environment/</guid>
+      <guid>https://archery-support.github.io/docs/developers/dev-environment/</guid>
       <description>
         
         
@@ -72,7 +72,7 @@
 &lt;p&gt;Test installation: &lt;code&gt;make buildall&lt;/code&gt;. This command should create a &lt;code&gt;navidrome&lt;/code&gt; executable in the project&amp;rsquo;s folder&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Create a &lt;code&gt;navidrome.toml&lt;/code&gt; config file in the project&amp;rsquo;s folder with (&lt;a href=&#34;https://www.navidrome.org/docs/usage/configuration-options/#available-options&#34;&gt;at least&lt;/a&gt;) the following options:&lt;/p&gt;
+&lt;p&gt;Create a &lt;code&gt;navidrome.toml&lt;/code&gt; config file in the project&amp;rsquo;s folder with (&lt;a href=&#34;https://archery-support.github.io/docs/usage/configuration-options/#available-options&#34;&gt;at least&lt;/a&gt;) the following options:&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-toml&#34; data-lang=&#34;toml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Set your music folder, preferable a specific development music library with few songs,&lt;/span&gt;
@@ -120,7 +120,7 @@ Navidrome automatically in your browser, using the URL http://localhost:4533/&lt
 &lt;ol&gt;
 &lt;li&gt;Because of &lt;a href=&#34;https://github.com/microsoft/WSL/issues/4885&#34;&gt;this WSL issue&lt;/a&gt; you need to use your network IP address to be able to login to Navidrome in development mode. Otherwise you will get an &lt;code&gt;Error: Unauthorized&lt;/code&gt; when logging in. You can see your network IP address after running &lt;code&gt;make dev&lt;/code&gt;.&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;Now that you have a working instance of Linux running on your machine, follow the steps above for &lt;a href=&#34;https://www.navidrome.org/docs/developers/dev-environment/#unix-based-systems-linux-macos-bsd-&#34;&gt;Unix-based system&lt;/a&gt; in the VSCode terminal. For more information on working with VSCode+WSL, check their &lt;a href=&#34;https://code.visualstudio.com/docs/remote/wsl&#34;&gt;documentation&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Now that you have a working instance of Linux running on your machine, follow the steps above for &lt;a href=&#34;https://archery-support.github.io/docs/developers/dev-environment/#unix-based-systems-linux-macos-bsd-&#34;&gt;Unix-based system&lt;/a&gt; in the VSCode terminal. For more information on working with VSCode+WSL, check their &lt;a href=&#34;https://code.visualstudio.com/docs/remote/wsl&#34;&gt;documentation&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;troubleshooting&#34;&gt;Troubleshooting&lt;/h2&gt;
 &lt;h3 id=&#34;system-limit-for-number-of-file-watchers-reached&#34;&gt;System limit for number of file watchers reached&lt;/h3&gt;
 &lt;p&gt;If you encounter the &lt;code&gt;Error: ENOSPC: System limit for number of file watchers reached, watch&lt;/code&gt; while running &lt;code&gt;make dev&lt;/code&gt; on Linux systems, then your system is maxing out the number of files that can be &amp;ldquo;watched&amp;rdquo; for changes at one time.&lt;/p&gt;
@@ -132,10 +132,10 @@ Navidrome automatically in your browser, using the URL http://localhost:4533/&lt
     
     <item>
       <title>Docs: Creating New Themes</title>
-      <link>https://www.navidrome.org/docs/developers/creating-themes/</link>
+      <link>https://archery-support.github.io/docs/developers/creating-themes/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www.navidrome.org/docs/developers/creating-themes/</guid>
+      <guid>https://archery-support.github.io/docs/developers/creating-themes/</guid>
       <description>
         
         
@@ -164,10 +164,10 @@ Also, don&amp;rsquo;t forget to add lots of screenshots!&lt;/p&gt;
     
     <item>
       <title>Docs: Translations</title>
-      <link>https://www.navidrome.org/docs/developers/translations/</link>
+      <link>https://archery-support.github.io/docs/developers/translations/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www.navidrome.org/docs/developers/translations/</guid>
+      <guid>https://archery-support.github.io/docs/developers/translations/</guid>
       <description>
         
         
@@ -202,10 +202,10 @@ translation efforts coordination and to get further instructions.&lt;/p&gt;
     
     <item>
       <title>Docs: Subsonic API Compatibility</title>
-      <link>https://www.navidrome.org/docs/developers/subsonic-api/</link>
+      <link>https://archery-support.github.io/docs/developers/subsonic-api/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www.navidrome.org/docs/developers/subsonic-api/</guid>
+      <guid>https://archery-support.github.io/docs/developers/subsonic-api/</guid>
       <description>
         
         
@@ -287,31 +287,31 @@ specifies IDs as strings, some clients insist in converting IDs to integers&lt;/
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;getArtistInfo&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Requires &lt;a href=&#34;https://www.navidrome.org/docs/usage/external-integrations/&#34;&gt;Last.fm and Spotify integration&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Requires &lt;a href=&#34;https://archery-support.github.io/docs/usage/external-integrations/&#34;&gt;Last.fm and Spotify integration&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;getArtistInfo2&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Requires &lt;a href=&#34;https://www.navidrome.org/docs/usage/external-integrations/&#34;&gt;Last.fm and Spotify integration&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Requires &lt;a href=&#34;https://archery-support.github.io/docs/usage/external-integrations/&#34;&gt;Last.fm and Spotify integration&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;getAlbumInfo&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Requires &lt;a href=&#34;https://www.navidrome.org/docs/usage/external-integrations/&#34;&gt;Last.fm and Spotify integration&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Requires &lt;a href=&#34;https://archery-support.github.io/docs/usage/external-integrations/&#34;&gt;Last.fm and Spotify integration&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;getAlbumInfo2&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Requires &lt;a href=&#34;https://www.navidrome.org/docs/usage/external-integrations/&#34;&gt;Last.fm and Spotify integration&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Requires &lt;a href=&#34;https://archery-support.github.io/docs/usage/external-integrations/&#34;&gt;Last.fm and Spotify integration&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;getTopSongs&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Requires &lt;a href=&#34;https://www.navidrome.org/docs/usage/external-integrations/&#34;&gt;Last.fm integration&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Requires &lt;a href=&#34;https://archery-support.github.io/docs/usage/external-integrations/&#34;&gt;Last.fm integration&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;getSimilarSongs&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Requires &lt;a href=&#34;https://www.navidrome.org/docs/usage/external-integrations/&#34;&gt;Last.fm integration&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Requires &lt;a href=&#34;https://archery-support.github.io/docs/usage/external-integrations/&#34;&gt;Last.fm integration&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;getSimilarSongs2&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Requires &lt;a href=&#34;https://www.navidrome.org/docs/usage/external-integrations/&#34;&gt;Last.fm integration&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Requires &lt;a href=&#34;https://archery-support.github.io/docs/usage/external-integrations/&#34;&gt;Last.fm integration&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;

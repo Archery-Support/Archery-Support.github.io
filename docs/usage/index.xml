@@ -1,13 +1,13 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Navidrome – Usage</title>
-    <link>https://www.navidrome.org/docs/usage/</link>
-    <description>Recent content in Usage on Navidrome</description>
+    <title>Archery Support System – Usage</title>
+    <link>https://archery-support.github.io/docs/usage/</link>
+    <description>Recent content in Usage on Archery Support System</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Thu, 05 Jan 2017 00:00:00 +0000</lastBuildDate>
     
-	  <atom:link href="https://www.navidrome.org/docs/usage/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="https://archery-support.github.io/docs/usage/index.xml" rel="self" type="application/rss+xml" />
     
     
       
@@ -17,10 +17,10 @@
     
     <item>
       <title>Docs: Navidrome Configuration Options</title>
-      <link>https://www.navidrome.org/docs/usage/configuration-options/</link>
+      <link>https://archery-support.github.io/docs/usage/configuration-options/</link>
       <pubDate>Fri, 06 Jan 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://www.navidrome.org/docs/usage/configuration-options/</guid>
+      <guid>https://archery-support.github.io/docs/usage/configuration-options/</guid>
       <description>
         
         
@@ -303,13 +303,13 @@ make it all uppercase. Ex: &lt;code&gt;ND_LOGLEVEL=debug&lt;/code&gt;. See below
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td&gt;AuthRequestLimit&lt;a href=&#34;https://www.navidrome.org/docs/usage/security#limit-login-attempts&#34; title=&#34;Login Limit Rating&#34;&gt;*&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;AuthRequestLimit&lt;a href=&#34;https://archery-support.github.io/docs/usage/security#limit-login-attempts&#34; title=&#34;Login Limit Rating&#34;&gt;*&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;code&gt;ND_AUTHREQUESTLIMIT&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;How many login requests can be processed from a single IP during the &lt;code&gt;AuthWindowLength&lt;/code&gt;. Set to &lt;code&gt;0&lt;/code&gt; to disable the limit rater&lt;/td&gt;
 &lt;td&gt;&lt;code&gt;5&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;AuthWindowLength&lt;a href=&#34;https://www.navidrome.org/docs/usage/security#limit-login-attempts&#34; title=&#34;Login Limit Rating&#34;&gt;*&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;AuthWindowLength&lt;a href=&#34;https://archery-support.github.io/docs/usage/security#limit-login-attempts&#34; title=&#34;Login Limit Rating&#34;&gt;*&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;code&gt;ND_AUTHWINDOWLENGTH&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;Window Length for the authentication rate limit&lt;/td&gt;
 &lt;td&gt;&lt;code&gt;&amp;quot;20s&amp;quot;&lt;/code&gt;&lt;/td&gt;
@@ -393,7 +393,7 @@ make it all uppercase. Ex: &lt;code&gt;ND_LOGLEVEL=debug&lt;/code&gt;. See below
 &lt;td&gt;&lt;code&gt;true&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;EnableMediaFileCoverArt&lt;a href=&#34;https://www.navidrome.org/docs/usage/artwork/#mediafiles&#34;&gt;*&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;EnableMediaFileCoverArt&lt;a href=&#34;https://archery-support.github.io/docs/usage/artwork/#mediafiles&#34;&gt;*&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;code&gt;ND_ENABLEMEDIAFILECOVERART&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;If set to false, it will return the album CoverArt when a song CoverArt is requested&lt;/td&gt;
 &lt;td&gt;&lt;code&gt;true&lt;/code&gt;&lt;/td&gt;
@@ -417,7 +417,7 @@ make it all uppercase. Ex: &lt;code&gt;ND_LOGLEVEL=debug&lt;/code&gt;. See below
 &lt;td&gt;&lt;code&gt;true&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;EnableTranscodingConfig&lt;a href=&#34;https://www.navidrome.org/docs/usage/security#transcoding-configuration&#34; title=&#34;Transcoding configuration&#34;&gt;*&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;EnableTranscodingConfig&lt;a href=&#34;https://archery-support.github.io/docs/usage/security#transcoding-configuration&#34; title=&#34;Transcoding configuration&#34;&gt;*&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;code&gt;ND_ENABLETRANSCODINGCONFIG&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;Enables transcoding configuration in the UI&lt;/td&gt;
 &lt;td&gt;&lt;code&gt;false&lt;/code&gt;&lt;/td&gt;
@@ -495,9 +495,9 @@ make it all uppercase. Ex: &lt;code&gt;ND_LOGLEVEL=debug&lt;/code&gt;. See below
 &lt;td&gt;&lt;code&gt;100&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;PasswordEncryptionKey&lt;a href=&#34;https://www.navidrome.org/docs/usage/security/#encrypted-passwords&#34;&gt;*&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;PasswordEncryptionKey&lt;a href=&#34;https://archery-support.github.io/docs/usage/security/#encrypted-passwords&#34;&gt;*&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;code&gt;ND_PASSWORDENCRYPTIONKEY&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Passphrase used to encrypt passwords in the DB. Click &lt;a href=&#34;https://www.navidrome.org/docs/usage/security/#encrypted-passwords&#34;&gt;here&lt;/a&gt; for details&lt;/td&gt;
+&lt;td&gt;Passphrase used to encrypt passwords in the DB. Click &lt;a href=&#34;https://archery-support.github.io/docs/usage/security/#encrypted-passwords&#34;&gt;here&lt;/a&gt; for details&lt;/td&gt;
 &lt;td&gt;-&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -525,13 +525,13 @@ make it all uppercase. Ex: &lt;code&gt;ND_LOGLEVEL=debug&lt;/code&gt;. See below
 &lt;td&gt;&lt;code&gt;false&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;ReverseProxyUserHeader&lt;a href=&#34;https://www.navidrome.org/docs/usage/security/#reverse-proxy-authentication&#34;&gt;*&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;ReverseProxyUserHeader&lt;a href=&#34;https://archery-support.github.io/docs/usage/security/#reverse-proxy-authentication&#34;&gt;*&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;code&gt;ND_REVERSEPROXYUSERHEADER&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;HTTP header containing user name from authenticated proxy&lt;/td&gt;
 &lt;td&gt;&lt;code&gt;&amp;quot;Remote-User&amp;quot;&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;ReverseProxyWhitelist&lt;a href=&#34;https://www.navidrome.org/docs/usage/security/#reverse-proxy-authentication&#34;&gt;*&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;ReverseProxyWhitelist&lt;a href=&#34;https://archery-support.github.io/docs/usage/security/#reverse-proxy-authentication&#34;&gt;*&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;code&gt;ND_REVERSEPROXYWHITELIST&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;Comma separated list of IP CIDRs which are allowed to use reverse proxy authentication, empty means &amp;ldquo;deny all&amp;rdquo;&lt;/td&gt;
 &lt;td&gt;&lt;em&gt;Empty&lt;/em&gt;&lt;/td&gt;
@@ -567,13 +567,13 @@ make it all uppercase. Ex: &lt;code&gt;ND_LOGLEVEL=debug&lt;/code&gt;. See below
 &lt;td&gt;&lt;code&gt;&amp;quot;24h&amp;quot;&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;Spotify.ID&lt;a href=&#34;https://www.navidrome.org/docs/usage/external-integrations/#spotify&#34;&gt;*&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Spotify.ID&lt;a href=&#34;https://archery-support.github.io/docs/usage/external-integrations/#spotify&#34;&gt;*&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;code&gt;ND_SPOTIFY_ID&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;Spotify Client ID. Required if you want Artist images&lt;/td&gt;
 &lt;td&gt;&lt;em&gt;Empty&lt;/em&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;Spotify.Secret&lt;a href=&#34;https://www.navidrome.org/docs/usage/external-integrations/#spotify&#34;&gt;*&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Spotify.Secret&lt;a href=&#34;https://archery-support.github.io/docs/usage/external-integrations/#spotify&#34;&gt;*&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;code&gt;ND_SPOTIFY_SECRET&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;Spotify Client Secret. Required if you want Artist images&lt;/td&gt;
 &lt;td&gt;&lt;em&gt;Empty&lt;/em&gt;&lt;/td&gt;
@@ -618,21 +618,21 @@ unit is bytes.  Note: &amp;ldquo;1KB&amp;rdquo; == &amp;ldquo;1000&amp;rdquo;, &
     
     <item>
       <title>Docs: Artwork location resolution</title>
-      <link>https://www.navidrome.org/docs/usage/artwork/</link>
+      <link>https://archery-support.github.io/docs/usage/artwork/</link>
       <pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://www.navidrome.org/docs/usage/artwork/</guid>
+      <guid>https://archery-support.github.io/docs/usage/artwork/</guid>
       <description>
         
         
         &lt;h2 id=&#34;albums&#34;&gt;Albums&lt;/h2&gt;
-&lt;p&gt;CoverArt fetching for albums is controlled by the &lt;code&gt;CoverArtPriority&lt;/code&gt; &lt;a href=&#34;https://www.navidrome.org/docs/usage/configuration-options&#34;&gt;config option&lt;/a&gt;.
+&lt;p&gt;CoverArt fetching for albums is controlled by the &lt;code&gt;CoverArtPriority&lt;/code&gt; &lt;a href=&#34;https://archery-support.github.io/docs/usage/configuration-options&#34;&gt;config option&lt;/a&gt;.
 This is a comma-separated list of places to look for album art images.
 The default is &lt;code&gt;cover.*, folder.*, front.*, embedded, external&lt;/code&gt;, meaning:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;First try to find a &lt;code&gt;cover.*&lt;/code&gt;, &lt;code&gt;folder.*&lt;/code&gt; or &lt;code&gt;front.*&lt;/code&gt; image in the album folder(s)&lt;/li&gt;
 &lt;li&gt;If not found, try to read an embedded image from one of the mediafiles for that album&lt;/li&gt;
-&lt;li&gt;If not found, try to fetch it from an &lt;a href=&#34;https://www.navidrome.org/docs/usage/external-integrations&#34;&gt;external service&lt;/a&gt; (currently only Last.fm)&lt;/li&gt;
+&lt;li&gt;If not found, try to fetch it from an &lt;a href=&#34;https://archery-support.github.io/docs/usage/external-integrations&#34;&gt;external service&lt;/a&gt; (currently only Last.fm)&lt;/li&gt;
 &lt;li&gt;If not found, use the cover placeholder (blue record image)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;mediafiles&#34;&gt;MediaFiles&lt;/h2&gt;
@@ -669,10 +669,10 @@ If for any reason it cannot be generated, it will use the album cover placeholde
     
     <item>
       <title>Docs: External Integrations</title>
-      <link>https://www.navidrome.org/docs/usage/external-integrations/</link>
+      <link>https://archery-support.github.io/docs/usage/external-integrations/</link>
       <pubDate>Wed, 04 Jan 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://www.navidrome.org/docs/usage/external-integrations/</guid>
+      <guid>https://archery-support.github.io/docs/usage/external-integrations/</guid>
       <description>
         
         
@@ -683,19 +683,19 @@ To obtain these values, create a free account in Spotify, then follow these step
 &lt;li&gt;Click on the &amp;ldquo;Create an App&amp;rdquo; button in Spotify&amp;rsquo;s Developer dashboard: &lt;a href=&#34;https://developer.spotify.com/dashboard/applications&#34;&gt;https://developer.spotify.com/dashboard/applications&lt;/a&gt;:&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p align=&#34;center&#34;&gt;
-&lt;img width=&#34;500&#34; src=&#34;https://www.navidrome.org/screenshots/spotify-dashboard.png&#34;&gt;
+&lt;img width=&#34;500&#34; src=&#34;https://archery-support.github.io/screenshots/spotify-dashboard.png&#34;&gt;
 &lt;/p&gt;
 &lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;Fill all fields and click on the &amp;ldquo;Create&amp;rdquo; button:&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p align=&#34;center&#34;&gt;
-&lt;img width=&#34;500&#34; src=&#34;https://www.navidrome.org/screenshots/spotify-create-app.png&#34;&gt;
+&lt;img width=&#34;500&#34; src=&#34;https://archery-support.github.io/screenshots/spotify-create-app.png&#34;&gt;
 &lt;/p&gt;
 &lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;Copy the values to your &lt;a href=&#34;https://www.navidrome.org/docs/usage/configuration-options#configuration-file&#34;&gt;configuration file&lt;/a&gt; (or set them as environment variables):&lt;/li&gt;
+&lt;li&gt;Copy the values to your &lt;a href=&#34;https://archery-support.github.io/docs/usage/configuration-options#configuration-file&#34;&gt;configuration file&lt;/a&gt; (or set them as environment variables):&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p align=&#34;center&#34;&gt;
-&lt;img width=&#34;500&#34; src=&#34;https://www.navidrome.org/screenshots/spotify-app-created.png&#34;&gt;
+&lt;img width=&#34;500&#34; src=&#34;https://archery-support.github.io/screenshots/spotify-app-created.png&#34;&gt;
 &lt;/p&gt;
 &lt;h2 id=&#34;lastfm&#34;&gt;Last.fm&lt;/h2&gt;
 &lt;p&gt;Navidrome can use Last.fm to retrieve artists biographies, artists top songs, similar artists and album covers.
@@ -705,16 +705,16 @@ It works out-of-the-box, but if you want to setup your own API-KEY, follow these
 &lt;li&gt;Go to &lt;a href=&#34;https://www.last.fm/api/account/create&#34;&gt;https://www.last.fm/api/account/create&lt;/a&gt; and create an API account. Only the &lt;em&gt;Application Name&lt;/em&gt; field is mandatory:&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p align=&#34;center&#34;&gt;
-&lt;img width=&#34;500&#34; src=&#34;https://www.navidrome.org/screenshots/lastfm-create-account.png&#34;&gt;
+&lt;img width=&#34;500&#34; src=&#34;https://archery-support.github.io/screenshots/lastfm-create-account.png&#34;&gt;
 &lt;/p&gt;
 &lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;After submitting the form, you can get the &lt;em&gt;API Key&lt;/em&gt; and &lt;em&gt;Shared Secret&lt;/em&gt; from the &lt;em&gt;Account Created&lt;/em&gt; page:&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p align=&#34;center&#34;&gt;
-&lt;img width=&#34;500&#34; src=&#34;https://www.navidrome.org/screenshots/lastfm-account-created.png&#34;&gt;
+&lt;img width=&#34;500&#34; src=&#34;https://archery-support.github.io/screenshots/lastfm-account-created.png&#34;&gt;
 &lt;/p&gt;
 &lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;Copy the values above to your &lt;a href=&#34;https://www.navidrome.org/docs/usage/configuration-options#configuration-file&#34;&gt;configuration file&lt;/a&gt; (or set them as environment variables)&lt;/li&gt;
+&lt;li&gt;Copy the values above to your &lt;a href=&#34;https://archery-support.github.io/docs/usage/configuration-options#configuration-file&#34;&gt;configuration file&lt;/a&gt; (or set them as environment variables)&lt;/li&gt;
 &lt;/ol&gt;
 
       </description>
@@ -722,10 +722,10 @@ It works out-of-the-box, but if you want to setup your own API-KEY, follow these
     
     <item>
       <title>Docs: Sharing</title>
-      <link>https://www.navidrome.org/docs/usage/sharing/</link>
+      <link>https://archery-support.github.io/docs/usage/sharing/</link>
       <pubDate>Mon, 02 Jan 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://www.navidrome.org/docs/usage/sharing/</guid>
+      <guid>https://archery-support.github.io/docs/usage/sharing/</guid>
       <description>
         
         
@@ -741,7 +741,7 @@ It works out-of-the-box, but if you want to setup your own API-KEY, follow these
 &lt;p&gt;Navidrome has a &amp;ldquo;Sharing&amp;rdquo; feature which allows users to generate a shareable link for a track, album, artist, or playlist. This link can then be sent to friends, allowing them to listen or download the music without having an account on your Navidrome instance.&lt;/p&gt;
 &lt;h3 id=&#34;enabling-the-sharing-feature&#34;&gt;Enabling the Sharing Feature&lt;/h3&gt;
 &lt;p&gt;As of version 0.49.3, the Sharing feature is disabled by default. To enable it, you need to adjust your Navidrome
-&lt;a href=&#34;https://www.navidrome.org/docs/usage/configuration-options&#34;&gt;configuration&lt;/a&gt;. In your configuration file, set &lt;code&gt;EnableSharing=true&lt;/code&gt;, or set the
+&lt;a href=&#34;https://archery-support.github.io/docs/usage/configuration-options&#34;&gt;configuration&lt;/a&gt;. In your configuration file, set &lt;code&gt;EnableSharing=true&lt;/code&gt;, or set the
 environment variable &lt;code&gt;ND_ENABLESHARING=true&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;Once the Sharing feature is enabled, all users will have access to all existing shares. This includes the ability to change the description and expiration date of the shares, as well as the capability to create new shares.&lt;/p&gt;
 &lt;p&gt;Please note that at this time, there is no way to set specific sharing permissions per user. This means that once the Sharing feature is enabled, all users have equal access and capabilities related to sharing. This includes the ability to view, modify, and create shares.&lt;/p&gt;
@@ -751,7 +751,7 @@ environment variable &lt;code&gt;ND_ENABLESHARING=true&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;When browsing your music collection, you will notice a &amp;ldquo;Share&amp;rdquo; button or menu item available for each item, be it a track, album, artist, or playlist. To share an item, simply click on this &amp;ldquo;Share&amp;rdquo; button.&lt;/p&gt;
 &lt;p&gt;Upon clicking the &amp;ldquo;Share&amp;rdquo; button, a dialog box will appear, allowing you to configure your share. This includes setting a description other configurations for the share.&lt;/p&gt;
 &lt;p align=&#34;center&#34;&gt;
-&lt;img width=&#34;400&#34; src=&#34;https://www.navidrome.org/screenshots/share-dialog.png&#34;&gt;
+&lt;img width=&#34;400&#34; src=&#34;https://archery-support.github.io/screenshots/share-dialog.png&#34;&gt;
 &lt;/p&gt;
 &lt;p&gt;Once you have configured your share as desired, click the &amp;ldquo;Share&amp;rdquo; button. This will generate a unique shareable link, which you can then copy and share with your friends.&lt;/p&gt;
 &lt;p&gt;The generated sharable links will be in the following format: &lt;code&gt;http://yourserver.com/share/XXXXXXXXXX&lt;/code&gt;. If you have Navidrome behind a reverse proxy, ensure you allow traffic to &lt;code&gt;/share&lt;/code&gt;.&lt;/p&gt;
@@ -761,7 +761,7 @@ See the &lt;a href=&#34;https://opensubsonic.netlify.app/categories/sharing/&#34
 &lt;h3 id=&#34;meta-tags-to-html&#34;&gt;Meta-tags to HTML&lt;/h3&gt;
 &lt;p&gt;Meta-tags are added to the HTML to provide some information about the shared music on chat platforms. Example of a link shared in Discord:&lt;/p&gt;
 &lt;p align=&#34;center&#34;&gt;
-&lt;img width=&#34;400&#34; src=&#34;https://www.navidrome.org/screenshots/share-meta.png&#34;&gt;
+&lt;img width=&#34;400&#34; src=&#34;https://archery-support.github.io/screenshots/share-meta.png&#34;&gt;
 &lt;/p&gt;
 
       </description>
@@ -769,10 +769,10 @@ See the &lt;a href=&#34;https://opensubsonic.netlify.app/categories/sharing/&#34
     
     <item>
       <title>Docs: Monitoring Navidrome</title>
-      <link>https://www.navidrome.org/docs/usage/monitoring/</link>
+      <link>https://archery-support.github.io/docs/usage/monitoring/</link>
       <pubDate>Tue, 03 Jan 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://www.navidrome.org/docs/usage/monitoring/</guid>
+      <guid>https://archery-support.github.io/docs/usage/monitoring/</guid>
       <description>
         
         
@@ -780,7 +780,7 @@ See the &lt;a href=&#34;https://opensubsonic.netlify.app/categories/sharing/&#34
 Prometheus/&lt;a href=&#34;https://github.com/OpenObservability/OpenMetrics/blob/main/specification/OpenMetrics.md&#34;&gt;OpenMetrics&lt;/a&gt;
 standard. Example Grafana dashboard:&lt;/p&gt;
 &lt;p align=&#34;center&#34;&gt;
-&lt;img width=&#34;1000&#34; src=&#34;https://www.navidrome.org/screenshots/grafana-example.png&#34;&gt;
+&lt;img width=&#34;1000&#34; src=&#34;https://archery-support.github.io/screenshots/grafana-example.png&#34;&gt;
 &lt;/p&gt;
 &lt;h3 id=&#34;configuration&#34;&gt;Configuration&lt;/h3&gt;
 &lt;p&gt;You need to set &lt;code&gt;ND_PROMETHEUS_ENABLED&lt;/code&gt; to enable Prometheus metrics endpoint.
@@ -819,10 +819,10 @@ can be found &lt;a href=&#34;https://github.com/Einsteinish/Docker-Compose-Prome
     
     <item>
       <title>Docs: Security Considerations</title>
-      <link>https://www.navidrome.org/docs/usage/security/</link>
+      <link>https://archery-support.github.io/docs/usage/security/</link>
       <pubDate>Mon, 02 Jan 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://www.navidrome.org/docs/usage/security/</guid>
+      <guid>https://archery-support.github.io/docs/usage/security/</guid>
       <description>
         
         
