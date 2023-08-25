@@ -1,1 +1,1 @@
-# Archery-Support.github.io
+auto-generated
