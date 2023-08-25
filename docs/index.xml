@@ -1,0 +1,1934 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Navidrome – Documentation</title>
+    <link>https://www.navidrome.org/docs/</link>
+    <description>Recent content in Documentation on Navidrome</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    
+	  <atom:link href="https://www.navidrome.org/docs/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: Development Environment</title>
+      <link>https://www.navidrome.org/docs/developers/dev-environment/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.navidrome.org/docs/developers/dev-environment/</guid>
+      <description>
+        
+        
+        
+
+&lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;
+&lt;p&gt;This is just a summary on how to get started. If you are stuck or have any questions, please join our &lt;a href=&#34;https://discord.gg/xh7j7yF&#34;&gt;Discord server&lt;/a&gt; and give us a shout on the &lt;code&gt;#dev&lt;/code&gt; channel&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;Any IDE with good support for GoLang and JavaScript/Node can be used for Navidrome development. We suggest using &lt;a href=&#34;https://code.visualstudio.com/&#34;&gt;Visual Studio Code&lt;/a&gt;, which has excellent support for both languages.&lt;/p&gt;
+&lt;h3 id=&#34;using-vscode--dev-container-docker&#34;&gt;Using VSCode + Dev Container (Docker)&lt;/h3&gt;
+&lt;p&gt;The project includes a &lt;a href=&#34;https://code.visualstudio.com/docs/remote/containers&#34;&gt;VSCode Dev Container&lt;/a&gt; configuration for using with &lt;a href=&#34;https://www.docker.com/products/docker-desktop&#34;&gt;Docker&lt;/a&gt;. The Dev Container provides all dependencies out-of-the-box. If you prefer to install all dependencies yourself, or cannot/don&amp;rsquo;t want to install Docker for any reason, see the other sections below for step by step instructions for your OS.&lt;/p&gt;
+
+
+&lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;Note&lt;/h4&gt;
+
+    Keep in mind that the overall experience when using Docker Desktop for development will be slower than normal, because access to the host OS filesystem is generally slower. If you want to have full performance, we recommend installing the dependencies directly on your system and skip using Docker for development.
+
+&lt;/div&gt;
+
+&lt;h3 id=&#34;unix-based-systems-linux-macos-bsd-&#34;&gt;Unix-based systems (Linux, macOS, BSD, …)&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Install &lt;a href=&#34;https://golang.org/doc/install&#34;&gt;GoLang 1.20+&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Install &lt;a href=&#34;http://nodejs.org/&#34;&gt;Node 16&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Install &lt;a href=&#34;http://taglib.org&#34;&gt;TagLib&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Ubuntu: &lt;code&gt;sudo apt install libtag1-dev&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Arch Linux: &lt;code&gt;pacman -S taglib&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;macOS: &lt;code&gt;brew install taglib&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;For other platforms check their &lt;a href=&#34;https://github.com/taglib/taglib/blob/master/INSTALL.md&#34;&gt;installation instructions&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Install &lt;code&gt;pkg-config&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Clone the project from &lt;a href=&#34;https://github.com/navidrome/navidrome&#34;&gt;https://github.com/navidrome/navidrome&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Install development tools: &lt;code&gt;make setup&lt;/code&gt;. This may take a while to complete&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Test installation: &lt;code&gt;make buildall&lt;/code&gt;. This command should create a &lt;code&gt;navidrome&lt;/code&gt; executable in the project&amp;rsquo;s folder&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Create a &lt;code&gt;navidrome.toml&lt;/code&gt; config file in the project&amp;rsquo;s folder with (&lt;a href=&#34;https://www.navidrome.org/docs/usage/configuration-options/#available-options&#34;&gt;at least&lt;/a&gt;) the following options:&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-toml&#34; data-lang=&#34;toml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Set your music folder, preferable a specific development music library with few songs,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# to make scan fast&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;MusicFolder&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/path/to/music/folder&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Make logging more verbose&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;LogLevel&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;debug&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# This option will always create an `admin` user with the specified password, so you don&amp;#39;t&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# have to create a user every time you delete your dev database&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;DevAutoCreateAdminPassword&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;password&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Move the data/DB folder out of the root. `./data` folder is ignored by git&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;DataFolder&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;./data&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# If you are developing in macOS with its firewall enabled, uncomment the next line to avoid &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# having to accept incoming network connections every time the server restarts:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Address = &amp;#34;localhost&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;To start Navidrome in development mode, just run &lt;code&gt;make dev&lt;/code&gt;. This will start both the backend
+and the frontend in &amp;ldquo;watch&amp;rdquo; mode, so any changes will automatically be reloaded. It will open
+Navidrome automatically in your browser, using the URL http://localhost:4533/&lt;/p&gt;
+&lt;p&gt;If it does not open a new window in your browser, check the output for any error messages.&lt;/p&gt;
+&lt;p&gt;For more useful &lt;code&gt;make&lt;/code&gt; targets, run &lt;code&gt;make help&lt;/code&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;windows-using-wsl&#34;&gt;Windows (using WSL)&lt;/h3&gt;
+&lt;p&gt;Even though it is possible to setup a fully working Navidrome development environment in Windows, we currently don&amp;rsquo;t provide instructions for that (feel free to contribute to these docs if you successfully set it up).&lt;/p&gt;
+&lt;p&gt;The (arguably better) alternative is to set up the project using &lt;a href=&#34;https://code.visualstudio.com/&#34;&gt;Visual Studio Code&lt;/a&gt; and &lt;a href=&#34;https://docs.microsoft.com/en-us/windows/wsl/&#34;&gt;WSL&lt;/a&gt;, which effectively lets you develop in a Linux environment while still using your Windows system.&lt;/p&gt;
+&lt;h4 id=&#34;installing-wsl&#34;&gt;Installing WSL&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;Make sure your Windows 10 is updated.&lt;/li&gt;
+&lt;li&gt;Go to &lt;em&gt;Settings &amp;gt; Turn Windows feature on or off &amp;gt; Windows subsystem for Linux&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Go to Microsoft Store and download and install any Linux distro you like. For maximum compatibility, we recommend Ubuntu.&lt;/li&gt;
+&lt;li&gt;Open Downloaded Linux distro, add username and password and then update it using: &lt;code&gt;sudo apt update &amp;amp;&amp;amp; sudo apt upgrade -y&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Install needed compilers for building Navidrome: &lt;code&gt;sudo apt install gcc g++&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;This will create an Linux terminal where you can execute any Linux commands.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Make sure you are using WSL 2.0&lt;/p&gt;
+&lt;h4 id=&#34;configuring-visual-studio-code&#34;&gt;Configuring Visual Studio Code&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;Click on Extensions (present on leftmost column), install &lt;em&gt;Remote Development&lt;/em&gt; extension and reload VSCode.&lt;/li&gt;
+&lt;li&gt;Press &lt;kbd&gt;F1&lt;/kbd&gt;, execute &lt;em&gt;Remote-WSL: New Window&lt;/em&gt;. This will connect your installed Linux distro to VSCode.&lt;/li&gt;
+&lt;li&gt;Now you can open a VSCode terminal and you&amp;rsquo;ll be able to run any Linux command.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;common-issues&#34;&gt;Common Issues&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;Because of &lt;a href=&#34;https://github.com/microsoft/WSL/issues/4885&#34;&gt;this WSL issue&lt;/a&gt; you need to use your network IP address to be able to login to Navidrome in development mode. Otherwise you will get an &lt;code&gt;Error: Unauthorized&lt;/code&gt; when logging in. You can see your network IP address after running &lt;code&gt;make dev&lt;/code&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Now that you have a working instance of Linux running on your machine, follow the steps above for &lt;a href=&#34;https://www.navidrome.org/docs/developers/dev-environment/#unix-based-systems-linux-macos-bsd-&#34;&gt;Unix-based system&lt;/a&gt; in the VSCode terminal. For more information on working with VSCode+WSL, check their &lt;a href=&#34;https://code.visualstudio.com/docs/remote/wsl&#34;&gt;documentation&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;troubleshooting&#34;&gt;Troubleshooting&lt;/h2&gt;
+&lt;h3 id=&#34;system-limit-for-number-of-file-watchers-reached&#34;&gt;System limit for number of file watchers reached&lt;/h3&gt;
+&lt;p&gt;If you encounter the &lt;code&gt;Error: ENOSPC: System limit for number of file watchers reached, watch&lt;/code&gt; while running &lt;code&gt;make dev&lt;/code&gt; on Linux systems, then your system is maxing out the number of files that can be &amp;ldquo;watched&amp;rdquo; for changes at one time.&lt;/p&gt;
+&lt;p&gt;To increase this limit, you can run the command &lt;code&gt;echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf &amp;amp;&amp;amp; sudo sysctl -p&lt;/code&gt;, which adds the line &lt;code&gt;fs.inotify.max_user_watches=524288&lt;/code&gt; to &lt;code&gt;/etc/sysctl.conf&lt;/code&gt; and reloads sysctl so the change takes effect. this allows &lt;code&gt;inotify&lt;/code&gt; to watch more files and folders for changes at a time.&lt;/p&gt;
+&lt;p&gt;More information about this can be found &lt;a href=&#34;https://dev.to/rubiin/ubuntu-increase-inotify-watcher-file-watch-limit-kf4&#34;&gt;here&lt;/a&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Navidrome Configuration Options</title>
+      <link>https://www.navidrome.org/docs/usage/configuration-options/</link>
+      <pubDate>Fri, 06 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.navidrome.org/docs/usage/configuration-options/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Navidrome allows some customization using environment variables, loading from a configuration file
+or using command line arguments.&lt;/p&gt;
+&lt;h2 id=&#34;configuration-file&#34;&gt;Configuration File&lt;/h2&gt;
+&lt;p&gt;Navidrome tries to load the configuration from a &lt;code&gt;navidrome.toml&lt;/code&gt; file in the current working
+directory, if it exists. You can create this file and put any of the &lt;a href=&#34;#available-options&#34;&gt;configuration options below&lt;/a&gt; in it.
+Example of a configuration file for Windows (should be similar for other systems, just use forward slashes for paths):&lt;/p&gt;
+
+
+
+
+
+&lt;ul class=&#34;nav nav-tabs&#34; id=&#34;tabs-0&#34; role=&#34;tablist&#34;&gt;
+  &lt;li class=&#34;nav-item&#34;&gt;
+      &lt;a class=&#34;nav-link disabled&#34;
+          id=&#34;tabs-00-00-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#tabs-00-00&#34; role=&#34;tab&#34;
+          aria-controls=&#34;tabs-00-00&#34; aria-selected=&#34;false&#34;&gt;
+        &lt;strong&gt;Example&lt;/strong&gt;:
+      &lt;/a&gt;
+    &lt;/li&gt;&lt;li class=&#34;nav-item&#34;&gt;
+      &lt;a class=&#34;nav-link active persistLang-windows&#34;
+          id=&#34;tabs-00-01-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#tabs-00-01&#34; role=&#34;tab&#34;
+          onclick=&#34;persistLang(&amp;#34;windows&amp;#34;);&#34;aria-controls=&#34;tabs-00-01&#34; aria-selected=&#34;false&#34;&gt;
+        Windows
+      &lt;/a&gt;
+    &lt;/li&gt;&lt;li class=&#34;nav-item&#34;&gt;
+      &lt;a class=&#34;nav-link persistLang-macos&#34;
+          id=&#34;tabs-00-02-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#tabs-00-02&#34; role=&#34;tab&#34;
+          onclick=&#34;persistLang(&amp;#34;macos&amp;#34;);&#34;aria-controls=&#34;tabs-00-02&#34; aria-selected=&#34;false&#34;&gt;
+        macOS
+      &lt;/a&gt;
+    &lt;/li&gt;&lt;li class=&#34;nav-item&#34;&gt;
+      &lt;a class=&#34;nav-link persistLang-unix&#34;
+          id=&#34;tabs-00-03-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#tabs-00-03&#34; role=&#34;tab&#34;
+          onclick=&#34;persistLang(&amp;#34;unix&amp;#34;);&#34;aria-controls=&#34;tabs-00-03&#34; aria-selected=&#34;false&#34;&gt;
+        Unix-based systems
+      &lt;/a&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&#34;tab-content&#34; id=&#34;tabs-0-content&#34;&gt;
+    &lt;div class=&#34;tab-pane fade&#34;
+        id=&#34;tabs-00-00&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-00-00-tab&#34;&gt;
+        &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;tab-pane fade show active&#34;
+        id=&#34;tabs-00-01&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-00-01-tab&#34;&gt;
+        &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# This is just an example! Please see available options to customize Navidrome for your needs at
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# https://www.navidrome.org/docs/usage/configuration-options/#available-options
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;LogLevel = &amp;#39;DEBUG&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ScanSchedule = &amp;#39;@every 24h&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;TranscodingCacheSize = &amp;#39;150MiB&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# IMPORTANT: Use single quotes for paths in Windows
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;MusicFolder = &amp;#39;C:\Users\JohnDoe\Music&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# Set this to the path of your ffmpeg executable
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;FFmpegPath = &amp;#39;C:\Program Files\ffmpeg\bin\ffmpeg.exe&amp;#39; 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;tab-pane fade&#34;
+        id=&#34;tabs-00-02&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-00-02-tab&#34;&gt;
+        &lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-macos&#34; data-lang=&#34;macos&#34;&gt;
+# This is just an example! Please see available options to customize Navidrome for your needs at
+# https://www.navidrome.org/docs/usage/configuration-options/#available-options
+
+LogLevel = &amp;#39;DEBUG&amp;#39;
+ScanSchedule = &amp;#39;@every 24h&amp;#39;
+TranscodingCacheSize = &amp;#39;150MiB&amp;#39;
+MusicFolder = &amp;#39;/Users/JohnDoe/Music&amp;#39;
+
+# This is the default path for Homebrew installed ffmpeg
+FFmpegPath = &amp;#39;/usr/local/bin/ffmpeg&amp;#39;&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;tab-pane fade&#34;
+        id=&#34;tabs-00-03&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-00-03-tab&#34;&gt;
+        &lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-unix&#34; data-lang=&#34;unix&#34;&gt;
+# This is just an example! Please see available options to customize Navidrome for your needs at
+# https://www.navidrome.org/docs/usage/configuration-options/#available-options
+
+LogLevel = &amp;#39;DEBUG&amp;#39;
+ScanSchedule = &amp;#39;@every 24h&amp;#39;
+TranscodingCacheSize = &amp;#39;150MiB&amp;#39;
+MusicFolder = &amp;#39;/mnt/music&amp;#39;&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;You can also specify a different path for the configuration file, using the &lt;code&gt;-c/--configfile&lt;/code&gt; option.
+Navidrome can load the configuration from &lt;code&gt;toml&lt;/code&gt;, &lt;code&gt;json&lt;/code&gt;, &lt;code&gt;yml&lt;/code&gt; and &lt;code&gt;ini&lt;/code&gt; files.&lt;/p&gt;
+&lt;p&gt;The example below assume you have created a &lt;code&gt;navidrome.toml&lt;/code&gt; file in your home directory:&lt;/p&gt;
+
+
+
+
+
+&lt;ul class=&#34;nav nav-tabs&#34; id=&#34;tabs-1&#34; role=&#34;tablist&#34;&gt;
+  &lt;li class=&#34;nav-item&#34;&gt;
+      &lt;a class=&#34;nav-link disabled&#34;
+          id=&#34;tabs-01-00-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#tabs-01-00&#34; role=&#34;tab&#34;
+          aria-controls=&#34;tabs-01-00&#34; aria-selected=&#34;false&#34;&gt;
+        &lt;strong&gt;Example&lt;/strong&gt;:
+      &lt;/a&gt;
+    &lt;/li&gt;&lt;li class=&#34;nav-item&#34;&gt;
+      &lt;a class=&#34;nav-link active persistLang-windows&#34;
+          id=&#34;tabs-01-01-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#tabs-01-01&#34; role=&#34;tab&#34;
+          onclick=&#34;persistLang(&amp;#34;windows&amp;#34;);&#34;aria-controls=&#34;tabs-01-01&#34; aria-selected=&#34;false&#34;&gt;
+        Windows
+      &lt;/a&gt;
+    &lt;/li&gt;&lt;li class=&#34;nav-item&#34;&gt;
+      &lt;a class=&#34;nav-link persistLang-macos&#34;
+          id=&#34;tabs-01-02-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#tabs-01-02&#34; role=&#34;tab&#34;
+          onclick=&#34;persistLang(&amp;#34;macos&amp;#34;);&#34;aria-controls=&#34;tabs-01-02&#34; aria-selected=&#34;false&#34;&gt;
+        macOs
+      &lt;/a&gt;
+    &lt;/li&gt;&lt;li class=&#34;nav-item&#34;&gt;
+      &lt;a class=&#34;nav-link persistLang-unix&#34;
+          id=&#34;tabs-01-03-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#tabs-01-03&#34; role=&#34;tab&#34;
+          onclick=&#34;persistLang(&amp;#34;unix&amp;#34;);&#34;aria-controls=&#34;tabs-01-03&#34; aria-selected=&#34;false&#34;&gt;
+        Unix-based systems
+      &lt;/a&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&#34;tab-content&#34; id=&#34;tabs-1-content&#34;&gt;
+    &lt;div class=&#34;tab-pane fade&#34;
+        id=&#34;tabs-01-00&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-01-00-tab&#34;&gt;
+        &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;tab-pane fade show active&#34;
+        id=&#34;tabs-01-01&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-01-01-tab&#34;&gt;
+        &lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-windows&#34; data-lang=&#34;windows&#34;&gt;
+C:\&amp;gt; navidrome --configfile &amp;#34;c:\User\JohnDoe\navidrome.toml&amp;#34;&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;tab-pane fade&#34;
+        id=&#34;tabs-01-02&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-01-02-tab&#34;&gt;
+        &lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-macos&#34; data-lang=&#34;macos&#34;&gt;
+$ navidrome --configfile &amp;#34;/User/JohnDoe/navidrome.toml&amp;#34;&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;tab-pane fade&#34;
+        id=&#34;tabs-01-03&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-01-03-tab&#34;&gt;
+        &lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-unix&#34; data-lang=&#34;unix&#34;&gt;
+$ navidrome --configfile &amp;#34;/home/johndoe/navidrome.toml&amp;#34;&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&#34;command-line-arguments&#34;&gt;Command Line Arguments&lt;/h2&gt;
+&lt;p&gt;You can set most of the &lt;a href=&#34;#available-options&#34;&gt;config options below&lt;/a&gt; passing arguments to &lt;code&gt;navidrome&lt;/code&gt; executable.&lt;/p&gt;
+&lt;p&gt;The example below shows how to set the &lt;code&gt;MusicFolder&lt;/code&gt; using the command line, assuming you have your music library
+under your home directory:&lt;/p&gt;
+
+
+
+
+
+&lt;ul class=&#34;nav nav-tabs&#34; id=&#34;tabs-2&#34; role=&#34;tablist&#34;&gt;
+  &lt;li class=&#34;nav-item&#34;&gt;
+      &lt;a class=&#34;nav-link disabled&#34;
+          id=&#34;tabs-02-00-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#tabs-02-00&#34; role=&#34;tab&#34;
+          aria-controls=&#34;tabs-02-00&#34; aria-selected=&#34;false&#34;&gt;
+        &lt;strong&gt;Example&lt;/strong&gt;:
+      &lt;/a&gt;
+    &lt;/li&gt;&lt;li class=&#34;nav-item&#34;&gt;
+      &lt;a class=&#34;nav-link active persistLang-windows&#34;
+          id=&#34;tabs-02-01-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#tabs-02-01&#34; role=&#34;tab&#34;
+          onclick=&#34;persistLang(&amp;#34;windows&amp;#34;);&#34;aria-controls=&#34;tabs-02-01&#34; aria-selected=&#34;false&#34;&gt;
+        Windows
+      &lt;/a&gt;
+    &lt;/li&gt;&lt;li class=&#34;nav-item&#34;&gt;
+      &lt;a class=&#34;nav-link persistLang-macos&#34;
+          id=&#34;tabs-02-02-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#tabs-02-02&#34; role=&#34;tab&#34;
+          onclick=&#34;persistLang(&amp;#34;macos&amp;#34;);&#34;aria-controls=&#34;tabs-02-02&#34; aria-selected=&#34;false&#34;&gt;
+        macOs
+      &lt;/a&gt;
+    &lt;/li&gt;&lt;li class=&#34;nav-item&#34;&gt;
+      &lt;a class=&#34;nav-link persistLang-unix&#34;
+          id=&#34;tabs-02-03-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#tabs-02-03&#34; role=&#34;tab&#34;
+          onclick=&#34;persistLang(&amp;#34;unix&amp;#34;);&#34;aria-controls=&#34;tabs-02-03&#34; aria-selected=&#34;false&#34;&gt;
+        Unix-based systems
+      &lt;/a&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&#34;tab-content&#34; id=&#34;tabs-2-content&#34;&gt;
+    &lt;div class=&#34;tab-pane fade&#34;
+        id=&#34;tabs-02-00&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-02-00-tab&#34;&gt;
+        &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;tab-pane fade show active&#34;
+        id=&#34;tabs-02-01&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-02-01-tab&#34;&gt;
+        &lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-windows&#34; data-lang=&#34;windows&#34;&gt;
+C:\&amp;gt; navidrome --musicfolder &amp;#34;c:\User\JohnDoe\Music&amp;#34;&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;tab-pane fade&#34;
+        id=&#34;tabs-02-02&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-02-02-tab&#34;&gt;
+        &lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-macos&#34; data-lang=&#34;macos&#34;&gt;
+$ navidrome --musicfolder &amp;#34;/User/JohnDoe/Music&amp;#34;&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;tab-pane fade&#34;
+        id=&#34;tabs-02-03&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-02-03-tab&#34;&gt;
+        &lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-unix&#34; data-lang=&#34;unix&#34;&gt;
+$ navidrome --musicfolder &amp;#34;/mnt/music&amp;#34;&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Please note that command line arguments must be &lt;strong&gt;all lowercase&lt;/strong&gt;. For a list of all available command line options,
+just call &lt;code&gt;navidrome --help&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;environment-variables&#34;&gt;Environment Variables&lt;/h2&gt;
+&lt;p&gt;Any configuration option can be set as an environment variable, just add a the prefix &lt;code&gt;ND_&lt;/code&gt; and
+make it all uppercase. Ex: &lt;code&gt;ND_LOGLEVEL=debug&lt;/code&gt;. See below for all available options&lt;/p&gt;
+&lt;h2 id=&#34;available-options&#34;&gt;Available Options&lt;/h2&gt;
+&lt;h3 id=&#34;basic-configuration&#34;&gt;Basic configuration&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;In config file&lt;/th&gt;
+&lt;th&gt;As an env var&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Default Value&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ND_CONFIGFILE&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Load configurations from an external config file&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&amp;quot;./navidrome.toml&amp;quot;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;MusicFolder&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ND_MUSICFOLDER&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Folder where your music library is stored. Can be read-only&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&amp;quot;./music&amp;quot;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;DataFolder&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ND_DATAFOLDER&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Folder to store application data (DB, cache&amp;hellip;)&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&amp;quot;./data&amp;quot;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;LogLevel&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ND_LOGLEVEL&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Log level. Useful for troubleshooting. Possible values: &lt;code&gt;error&lt;/code&gt;, &lt;code&gt;warn&lt;/code&gt;, &lt;code&gt;info&lt;/code&gt;, &lt;code&gt;debug&lt;/code&gt;, &lt;code&gt;trace&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&amp;quot;info&amp;quot;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Address&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ND_ADDRESS&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;IP address the server will bind to&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;0.0.0.0&lt;/code&gt; and &lt;code&gt;::&lt;/code&gt; (all IPs)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;BaseUrl&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ND_BASEURL&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Base URL (only the &lt;code&gt;path&lt;/code&gt; part) to configure Navidrome behind a proxy (ex: &lt;code&gt;/music&lt;/code&gt;)&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Empty&lt;/em&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Port&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ND_PORT&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;HTTP port Navidrome will use&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;4533&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;advanced-configuration&#34;&gt;Advanced configuration&lt;/h3&gt;
+&lt;!-- This table is easier to be edited when Word Wrap is toggled off. Please keep it sorted --&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;In config file&lt;/th&gt;
+&lt;th&gt;As an env var&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Default Value&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;AuthRequestLimit&lt;a href=&#34;https://www.navidrome.org/docs/usage/security#limit-login-attempts&#34; title=&#34;Login Limit Rating&#34;&gt;*&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ND_AUTHREQUESTLIMIT&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;How many login requests can be processed from a single IP during the &lt;code&gt;AuthWindowLength&lt;/code&gt;. Set to &lt;code&gt;0&lt;/code&gt; to disable the limit rater&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;5&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;AuthWindowLength&lt;a href=&#34;https://www.navidrome.org/docs/usage/security#limit-login-attempts&#34; title=&#34;Login Limit Rating&#34;&gt;*&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ND_AUTHWINDOWLENGTH&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Window Length for the authentication rate limit&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&amp;quot;20s&amp;quot;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;AutoImportPlaylists&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ND_AUTOIMPORTPLAYLISTS&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Enable/disable &lt;code&gt;.m3u&lt;/code&gt; playlist auto-import&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;true&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;CoverArtPriority&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ND_COVERARTPRIORITY&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Configure the order to look for cover art images. Use special &lt;code&gt;embedded&lt;/code&gt; value to get embedded images from the audio files&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;cover.*, folder.*, front.*, embedded, external&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;CoverJpegQuality&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ND_COVERJPEGQUALITY&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Set JPEG quality percentage for resized cover art images&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;75&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;DefaultDownsamplingFormat&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ND_DEFAULTDOWNSAMPLINGFORMAT&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Format to transcode to when client requests downsampling (specify maxBitrate without a format)&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;opus&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;DefaultLanguage&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ND_DEFAULTLANGUAGE&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Sets the default language used by the UI when logging in from a new browser. This value must match one of the file names in the &lt;a href=&#34;https://github.com/navidrome/navidrome/tree/master/resources/i18n&#34;&gt;resources/i18n&lt;/a&gt;. Ex: for Chinese Simplified it has to be &lt;code&gt;zh-Hans&lt;/code&gt; (case sensitive)&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&amp;quot;en&amp;quot;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;DefaultTheme&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ND_DEFAULTTHEME&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Sets the default theme used by the UI when logging in from a new browser. This value must match one of the options in the UI&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;Dark&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;EnableArtworkPrecache&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ND_ENABLEARTWORKPRECACHE&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Enable image pre-caching of new added music&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;true&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;EnableCoverAnimation&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ND_ENABLECOVERANIMATION&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Controls whether the player in the UI will animate the album cover (rotation)&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;true&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;EnableDownloads&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ND_ENABLEDOWNLOADS&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Enable the option in the UI to download music/albums/artists/playlists from the server&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;true&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;EnableExternalServices&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ND_ENABLEEXTERNALSERVICES&lt;/code&gt;.&lt;/td&gt;
+&lt;td&gt;Set this to &lt;code&gt;false&lt;/code&gt; to completely disable ALL external integrations&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;true&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;EnableFavourites&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ND_ENABLEFAVOURITES&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Enable toggling &amp;ldquo;Heart&amp;rdquo;/&amp;ldquo;Loved&amp;rdquo; for songs/albums/artists in the UI (maps to &amp;ldquo;Star&amp;rdquo;/&amp;ldquo;Starred&amp;rdquo; in Subsonic Clients)&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;true&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;EnableGravatar&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ND_ENABLEGRAVATAR&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Use &lt;a href=&#34;https://gravatar.com/&#34;&gt;Gravatar&lt;/a&gt; images as the user profile image. Needs the user&amp;rsquo;s email to be filled&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;false&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;EnableLogRedacting&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ND_ENABLELOGREDACTING&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Whether or not sensitive information (like tokens and passwords) should be redacted (hidden) in the logs&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;true&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;EnableMediaFileCoverArt&lt;a href=&#34;https://www.navidrome.org/docs/usage/artwork/#mediafiles&#34;&gt;*&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ND_ENABLEMEDIAFILECOVERART&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;If set to false, it will return the album CoverArt when a song CoverArt is requested&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;true&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;EnableReplayGain&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ND_ENABLEREPLAYGAIN&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Enable ReplayGain options in the UI&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;true&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;EnableSharing&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ND_ENABLESHARING&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Enable the Sharing feature&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;false&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;EnableStarRating&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ND_ENABLESTARRATING&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Enable 5-star ratings in the UI&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;true&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;EnableTranscodingConfig&lt;a href=&#34;https://www.navidrome.org/docs/usage/security#transcoding-configuration&#34; title=&#34;Transcoding configuration&#34;&gt;*&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ND_ENABLETRANSCODINGCONFIG&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Enables transcoding configuration in the UI&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;false&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;EnableUserEditing&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ND_ENABLEUSEREDITING&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Enable regular users to edit their details and change their password&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;true&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;FFmpegPath&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ND_FFMPEGPATH&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Path to &lt;code&gt;ffmpeg&lt;/code&gt; executable. Use it when Navidrome cannot find it, or you want to use a specific version&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Empty&lt;/em&gt; (search in the PATH)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;GATrackingID&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ND_GATRACKINGID&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Send basic info to your own Google Analytics account. Must be in the format &lt;code&gt;UA-XXXXXXXX&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Empty&lt;/em&gt; (disabled)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;IgnoredArticles&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ND_IGNOREDARTICLES&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;List of ignored articles when sorting/indexing artists&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&amp;quot;The El La Los Las Le Les Os As O A&amp;quot;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ImageCacheSize&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ND_IMAGECACHESIZE&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Size of image (art work) cache. Set to &lt;code&gt;&amp;quot;0&amp;quot;&lt;/code&gt; to disable cache&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&amp;quot;100MB&amp;quot;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;LastFM.ApiKey&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ND_LASTFM_APIKEY&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Last.fm ApiKey&lt;/td&gt;
+&lt;td&gt;Navidrome project&amp;rsquo;s shared ApiKey&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;LastFM.Enabled&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ND_LASTFM_ENABLED&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Set this to &lt;code&gt;false&lt;/code&gt; to completely disable Last.fm integration&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;true&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;LastFM.Language&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ND_LASTFM_LANGUAGE&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes&#34; title=&#34;List of language codes&#34;&gt;Two letter-code for language&lt;/a&gt; to be used to retrieve biographies from Last.fm&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&amp;quot;en&amp;quot;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;LastFM.Secret&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ND_LASTFM_SECRET&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Last.fm Shared Secret&lt;/td&gt;
+&lt;td&gt;Navidrome project&amp;rsquo;s shared Secret&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ListenBrainz.BaseURL&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ND_LISTENBRAINZ_BASEURL&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Set this to override the default ListenBrainz base URL (useful with self-hosted solutions like Maloja&lt;a href=&#34;https://github.com/krateng/maloja&#34;&gt;*&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;https://api.listenbrainz.org/1/&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ListenBrainz.Enabled&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ND_LISTENBRAINZ_ENABLED&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Set this to &lt;code&gt;false&lt;/code&gt; to completely disable ListenBrainz integration&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;true&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;MaxSidebarPlaylists&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ND_MAXSIDEBARPLAYLISTS&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Set the maximum number of playlists shown in the UI&amp;rsquo;s sidebar. Note that a very large number can cause UI performance issues.&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;100&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;PasswordEncryptionKey&lt;a href=&#34;https://www.navidrome.org/docs/usage/security/#encrypted-passwords&#34;&gt;*&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ND_PASSWORDENCRYPTIONKEY&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Passphrase used to encrypt passwords in the DB. Click &lt;a href=&#34;https://www.navidrome.org/docs/usage/security/#encrypted-passwords&#34;&gt;here&lt;/a&gt; for details&lt;/td&gt;
+&lt;td&gt;-&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;PlaylistsPath&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ND_PLAYLISTSPATH&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Where to search for and import playlists from. Can be a list of folders/globs (separated by &lt;code&gt;:&lt;/code&gt; (or &lt;code&gt;;&lt;/code&gt; on Windows). Paths &lt;strong&gt;MUST&lt;/strong&gt; be relative to &lt;code&gt;MusicFolder&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&amp;quot;.:**/**&amp;quot;&lt;/code&gt; (meaning &lt;code&gt;MusicFolder&lt;/code&gt; and all its subfolders)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Prometheus.Enabled&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ND_PROMETHEUS_ENABLED&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Enable extra endpoint with &lt;a href=&#34;https://prometheus.io/docs/introduction/overview/&#34;&gt;Prometheus&lt;/a&gt; metrics.&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;false&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Prometheus.MetricsPath&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ND_PROMETHEUS_METRICSPATH&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Custom path for Prometheus metrics. Useful for blocking unauthorized metrics requests.&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&amp;quot;/metrics&amp;quot;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;RecentlyAddedByModTime&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ND_RECENTLYADDEDBYMODTIME&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Uses music files&amp;rsquo; modification time when sorting by &amp;ldquo;Recently Added&amp;rdquo;. Otherwise use import time&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;false&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ReverseProxyUserHeader&lt;a href=&#34;https://www.navidrome.org/docs/usage/security/#reverse-proxy-authentication&#34;&gt;*&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ND_REVERSEPROXYUSERHEADER&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;HTTP header containing user name from authenticated proxy&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&amp;quot;Remote-User&amp;quot;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ReverseProxyWhitelist&lt;a href=&#34;https://www.navidrome.org/docs/usage/security/#reverse-proxy-authentication&#34;&gt;*&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ND_REVERSEPROXYWHITELIST&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Comma separated list of IP CIDRs which are allowed to use reverse proxy authentication, empty means &amp;ldquo;deny all&amp;rdquo;&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Empty&lt;/em&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Scanner.Extractor&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ND_SCANNER_EXTRACTOR&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Select metadata extractor implementation. Options: &lt;code&gt;taglib&lt;/code&gt; or &lt;code&gt;ffmpeg&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&amp;quot;taglib&amp;quot;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Scanner.GenreSeparators&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ND_SCANNER_GENRESEPARATORS&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;List of separators to split genre tags&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&amp;quot;;/,&amp;quot;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ScanSchedule&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ND_SCANSCHEDULE&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Configure periodic scans using &lt;a href=&#34;https://crontab.guru&#34;&gt;&amp;ldquo;cron&amp;rdquo; syntax&lt;/a&gt;. To disable it altogether, set it to &lt;code&gt;&amp;quot;0&amp;quot;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&amp;quot;@every 1m&amp;quot;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;SearchFullString&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ND_SEARCHFULLSTRING&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Match query strings anywhere in searchable fields, not only in word boundaries. Useful for languages where words are not space separated&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;false&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;SessionTimeout&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ND_SESSIONTIMEOUT&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;How long Navidrome will wait before closing web ui idle sessions&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&amp;quot;24h&amp;quot;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Spotify.ID&lt;a href=&#34;https://www.navidrome.org/docs/usage/external-integrations/#spotify&#34;&gt;*&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ND_SPOTIFY_ID&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Spotify Client ID. Required if you want Artist images&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Empty&lt;/em&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Spotify.Secret&lt;a href=&#34;https://www.navidrome.org/docs/usage/external-integrations/#spotify&#34;&gt;*&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ND_SPOTIFY_SECRET&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Spotify Client Secret. Required if you want Artist images&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Empty&lt;/em&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;SubsonicArtistParticipations&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ND_SUBSONICARTISTPARTICIPATIONS&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;When requesting artist&amp;rsquo;s albums, include albums where the artist participates (ex: Various Artists compilations)&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;false&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;TranscodingCacheSize&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ND_TRANSCODINGCACHESIZE&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Size of transcoding cache. Set to &lt;code&gt;&amp;quot;0&amp;quot;&lt;/code&gt; to disable cache&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&amp;quot;100MB&amp;quot;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;UILoginBackgroundUrl&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ND_UILOGINBACKGROUNDURL&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Change background image used in the Login page&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;random music image from Unsplash.com&lt;/em&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;UIWelcomeMessage&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ND_UIWELCOMEMESSAGE&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Add a welcome message to the login screen&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Empty&lt;/em&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h4 id=&#34;notes&#34;&gt;Notes&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Durations are specified as a number and a unit suffix, such as &amp;ldquo;24h&amp;rdquo;, &amp;ldquo;30s&amp;rdquo; or &amp;ldquo;1h10m&amp;rdquo;. Valid
+time units are &amp;ldquo;s&amp;rdquo;, &amp;ldquo;m&amp;rdquo;, &amp;ldquo;h&amp;rdquo;.&lt;/li&gt;
+&lt;li&gt;Sizes are specified as a number and an optional unit suffix, such as &amp;ldquo;1GB&amp;rdquo; or &amp;ldquo;150 MiB&amp;rdquo;. Default
+unit is bytes.  Note: &amp;ldquo;1KB&amp;rdquo; == &amp;ldquo;1000&amp;rdquo;, &amp;ldquo;1KiB&amp;rdquo; == &amp;ldquo;1024&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;Transcoding can be required in some situations. For example: trying to play a &lt;a href=&#34;https://en.wikipedia.org/wiki/Windows_Media_Audio&#34;&gt;WMA&lt;/a&gt; file in a webbrowser, will &lt;strong&gt;only&lt;/strong&gt; work for natively supported formats by the browser you are using. (so playing that with Mozilla Firefox on Linux, will not work. Mozilla even have their &lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Audio_codecs&#34;&gt;own guide&lt;/a&gt; about audio codecs).&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Creating New Themes</title>
+      <link>https://www.navidrome.org/docs/developers/creating-themes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.navidrome.org/docs/developers/creating-themes/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Themes in Navidrome are simple &lt;a href=&#34;https://material-ui.com/customization/theming/&#34;&gt;Material-UI themes&lt;/a&gt;. They are basic JS
+objects, that allow you to override almost every visual aspect of Navidrome&amp;rsquo;s UI.&lt;/p&gt;
+&lt;h2 id=&#34;steps-to-create-a-new-theme&#34;&gt;Steps to create a new theme:&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Create a new JS file in the &lt;code&gt;ui/src/themes&lt;/code&gt; folder that exports an object containing your theme. Create
+the theme based on the ReactAdmin/Material UI documentation below.
+See the existing themes for examples.&lt;/li&gt;
+&lt;li&gt;Add a &lt;code&gt;themeName&lt;/code&gt; property to your theme. This will be displayed in the theme selector&lt;/li&gt;
+&lt;li&gt;Add your new theme to the &lt;code&gt;ui/src/themes/index.js&lt;/code&gt; file&lt;/li&gt;
+&lt;li&gt;Start the application, your new theme should now appear as an option in the theme selector&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Before submitting a pull request to include your theme in Navidrome, please test your theme thoroughly and make sure
+it is formatted with the &lt;a href=&#34;https://prettier.io/&#34;&gt;Prettier&lt;/a&gt; rules found in the project (&lt;code&gt;ui/src/.prettierrc.js&lt;/code&gt;).
+Also, don&amp;rsquo;t forget to add lots of screenshots!&lt;/p&gt;
+&lt;h2 id=&#34;resources-for-material-ui-theming&#34;&gt;Resources for Material-UI theming&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Start reading &lt;a href=&#34;https://marmelab.com/react-admin/Theming.html#writing-a-custom-theme&#34;&gt;ReactAdmin documentation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Color Tool: &lt;a href=&#34;https://material-ui.com/customization/color/#official-color-tool&#34;&gt;https://material-ui.com/customization/color/#official-color-tool&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Artwork location resolution</title>
+      <link>https://www.navidrome.org/docs/usage/artwork/</link>
+      <pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.navidrome.org/docs/usage/artwork/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;albums&#34;&gt;Albums&lt;/h2&gt;
+&lt;p&gt;CoverArt fetching for albums is controlled by the &lt;code&gt;CoverArtPriority&lt;/code&gt; &lt;a href=&#34;https://www.navidrome.org/docs/usage/configuration-options&#34;&gt;config option&lt;/a&gt;.
+This is a comma-separated list of places to look for album art images.
+The default is &lt;code&gt;cover.*, folder.*, front.*, embedded, external&lt;/code&gt;, meaning:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;First try to find a &lt;code&gt;cover.*&lt;/code&gt;, &lt;code&gt;folder.*&lt;/code&gt; or &lt;code&gt;front.*&lt;/code&gt; image in the album folder(s)&lt;/li&gt;
+&lt;li&gt;If not found, try to read an embedded image from one of the mediafiles for that album&lt;/li&gt;
+&lt;li&gt;If not found, try to fetch it from an &lt;a href=&#34;https://www.navidrome.org/docs/usage/external-integrations&#34;&gt;external service&lt;/a&gt; (currently only Last.fm)&lt;/li&gt;
+&lt;li&gt;If not found, use the cover placeholder (blue record image)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;mediafiles&#34;&gt;MediaFiles&lt;/h2&gt;
+&lt;p&gt;Some players (including Navidrome&amp;rsquo;s own WebUI), can display different cover art images for each track in an album.
+Navidrome tries to read an embedded image from the mediafile. If it does not have one, it will get the album cover
+art as explained above. MediaFile cover art can be slow in some systems and can be disabled by
+setting &lt;code&gt;EnableMediaFileCoverArt=false&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;artists&#34;&gt;Artists&lt;/h2&gt;
+&lt;p&gt;Image for artists are fetched following these rules:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Try to read an &lt;code&gt;artist.*&lt;/code&gt; image file from the artist folder (the parent folder of all albums of a given artist). Ex:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;C:\Music\U2\Rattle And Run\CD1\01.mp3&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;C:\Music\U2\Boy\01.mp3&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;It will try to read the image from &lt;code&gt;C:\Music\U2\artist.*&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;If not found, try to read an &lt;code&gt;artist.*&lt;/code&gt; image from any album for that artist. If more than one is found, the
+selected one is unpredictable.&lt;/li&gt;
+&lt;li&gt;If not found, it will try to get it from an external source. Currently, this can only be Spotify, if configured.&lt;/li&gt;
+&lt;li&gt;If not found, use the artist image placeholder (grey star image).&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;playlists&#34;&gt;Playlists&lt;/h2&gt;
+&lt;p&gt;Currently, Playlists CoverArt images are generated tiled images, containing up to 4 covers from the albums in the playlist.
+If for any reason it cannot be generated, it will use the album cover placeholder (blue record image). This is currently only available in the Subsonic API.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Translations</title>
+      <link>https://www.navidrome.org/docs/developers/translations/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.navidrome.org/docs/developers/translations/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Translations are currently managed in &lt;a href=&#34;https://poeditor.com&#34;&gt;POEditor&lt;/a&gt;.
+If you want to contribute new translations or help reviewing/proofreading any of the existing
+ones, please join our &lt;a href=&#34;https://discord.gg/xh7j7yF&#34;&gt;Discord server&lt;/a&gt;, channel &lt;code&gt;#translations&lt;/code&gt;, for
+translation efforts coordination and to get further instructions.&lt;/p&gt;
+&lt;p&gt;Alternatively, you can submit a pull request with your proposed changes directly &lt;a href=&#34;https://github.com/navidrome/navidrome/tree/master/resources/i18n&#34;&gt;to our project in GitHub&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;directory-structure&#34;&gt;Directory Structure&lt;/h2&gt;
+&lt;p&gt;If you choose to contribute translations via a pull request, most of the translation files are located in the &lt;a href=&#34;https://github.com/navidrome/navidrome/tree/master/resources/i18n&#34;&gt;&lt;code&gt;resources/i18n&lt;/code&gt;&lt;/a&gt; directory. These are all served by the Navidrome backend to avoid bloating UI bundle with additional translations. The English translation file is located outside of this main directory at &lt;a href=&#34;https://github.com/navidrome/navidrome/blob/master/ui/src/i18n/en.json&#34;&gt;&lt;code&gt;ui/src/i18n/en.json&lt;/code&gt;&lt;/a&gt; so it can be bundled with the UI.&lt;/p&gt;
+&lt;h2 id=&#34;translation-status&#34;&gt;Translation Status&lt;/h2&gt;
+&lt;img alt=&#34;POEditor&#34; src=&#34;https://img.shields.io/poeditor/progress/337783/en?style=flat-square&amp;token=c17601dd8151b384e987d3aa33ea68ba&#34;&gt;
+&lt;img alt=&#34;POEditor&#34; src=&#34;https://img.shields.io/poeditor/progress/337783/zh-Hans?style=flat-square&amp;token=c17601dd8151b384e987d3aa33ea68ba&#34;&gt;
+&lt;img alt=&#34;POEditor&#34; src=&#34;https://img.shields.io/poeditor/progress/337783/zh-Hant?style=flat-square&amp;token=c17601dd8151b384e987d3aa33ea68ba&#34;&gt;
+&lt;img alt=&#34;POEditor&#34; src=&#34;https://img.shields.io/poeditor/progress/337783/cs?style=flat-square&amp;token=c17601dd8151b384e987d3aa33ea68ba&#34;&gt;
+&lt;img alt=&#34;POEditor&#34; src=&#34;https://img.shields.io/poeditor/progress/337783/da?style=flat-square&amp;token=c17601dd8151b384e987d3aa33ea68ba&#34;&gt;
+&lt;img alt=&#34;POEditor&#34; src=&#34;https://img.shields.io/poeditor/progress/337783/nl?style=flat-square&amp;token=c17601dd8151b384e987d3aa33ea68ba&#34;&gt;
+&lt;img alt=&#34;POEditor&#34; src=&#34;https://img.shields.io/poeditor/progress/337783/eo?style=flat-square&amp;token=c17601dd8151b384e987d3aa33ea68ba&#34;&gt;
+&lt;img alt=&#34;POEditor&#34; src=&#34;https://img.shields.io/poeditor/progress/337783/fr?style=flat-square&amp;token=c17601dd8151b384e987d3aa33ea68ba&#34;&gt;
+&lt;img alt=&#34;POEditor&#34; src=&#34;https://img.shields.io/poeditor/progress/337783/de?style=flat-square&amp;token=c17601dd8151b384e987d3aa33ea68ba&#34;&gt;
+&lt;img alt=&#34;POEditor&#34; src=&#34;https://img.shields.io/poeditor/progress/337783/it?style=flat-square&amp;token=c17601dd8151b384e987d3aa33ea68ba&#34;&gt;
+&lt;img alt=&#34;POEditor&#34; src=&#34;https://img.shields.io/poeditor/progress/337783/ja?style=flat-square&amp;token=c17601dd8151b384e987d3aa33ea68ba&#34;&gt;
+&lt;img alt=&#34;POEditor&#34; src=&#34;https://img.shields.io/poeditor/progress/337783/pl?style=flat-square&amp;token=c17601dd8151b384e987d3aa33ea68ba&#34;&gt;
+&lt;img alt=&#34;POEditor&#34; src=&#34;https://img.shields.io/poeditor/progress/337783/pt?style=flat-square&amp;token=c17601dd8151b384e987d3aa33ea68ba&#34;&gt;
+&lt;img alt=&#34;POEditor&#34; src=&#34;https://img.shields.io/poeditor/progress/337783/es?style=flat-square&amp;token=c17601dd8151b384e987d3aa33ea68ba&#34;&gt;
+&lt;img alt=&#34;POEditor&#34; src=&#34;https://img.shields.io/poeditor/progress/337783/ru?style=flat-square&amp;token=c17601dd8151b384e987d3aa33ea68ba&#34;&gt;
+&lt;img alt=&#34;POEditor&#34; src=&#34;https://img.shields.io/poeditor/progress/337783/th?style=flat-square&amp;token=c17601dd8151b384e987d3aa33ea68ba&#34;&gt;
+&lt;img alt=&#34;POEditor&#34; src=&#34;https://img.shields.io/poeditor/progress/337783/tr?style=flat-square&amp;token=c17601dd8151b384e987d3aa33ea68ba&#34;&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: External Integrations</title>
+      <link>https://www.navidrome.org/docs/usage/external-integrations/</link>
+      <pubDate>Wed, 04 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.navidrome.org/docs/usage/external-integrations/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;spotify&#34;&gt;Spotify&lt;/h2&gt;
+&lt;p&gt;Artist images can be retrieved from Spotify. You&amp;rsquo;ll need to set the config options &lt;code&gt;Spotify.ID&lt;/code&gt; and &lt;code&gt;Spotify.Secret&lt;/code&gt;.
+To obtain these values, create a free account in Spotify, then follow these steps:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Click on the &amp;ldquo;Create an App&amp;rdquo; button in Spotify&amp;rsquo;s Developer dashboard: &lt;a href=&#34;https://developer.spotify.com/dashboard/applications&#34;&gt;https://developer.spotify.com/dashboard/applications&lt;/a&gt;:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p align=&#34;center&#34;&gt;
+&lt;img width=&#34;500&#34; src=&#34;https://www.navidrome.org/screenshots/spotify-dashboard.png&#34;&gt;
+&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Fill all fields and click on the &amp;ldquo;Create&amp;rdquo; button:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p align=&#34;center&#34;&gt;
+&lt;img width=&#34;500&#34; src=&#34;https://www.navidrome.org/screenshots/spotify-create-app.png&#34;&gt;
+&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;Copy the values to your &lt;a href=&#34;https://www.navidrome.org/docs/usage/configuration-options#configuration-file&#34;&gt;configuration file&lt;/a&gt; (or set them as environment variables):&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p align=&#34;center&#34;&gt;
+&lt;img width=&#34;500&#34; src=&#34;https://www.navidrome.org/screenshots/spotify-app-created.png&#34;&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;lastfm&#34;&gt;Last.fm&lt;/h2&gt;
+&lt;p&gt;Navidrome can use Last.fm to retrieve artists biographies, artists top songs, similar artists and album covers.
+It works out-of-the-box, but if you want to setup your own API-KEY, follow these steps:&lt;/p&gt;
+&lt;p&gt;You will need a Last.fm free account, then you&amp;rsquo;ll need to set the config options &lt;code&gt;LastFM.ApiKey&lt;/code&gt; and &lt;code&gt;LastFM.Secret&lt;/code&gt;. You can obtain these values by creating an API account in Last.fm:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Go to &lt;a href=&#34;https://www.last.fm/api/account/create&#34;&gt;https://www.last.fm/api/account/create&lt;/a&gt; and create an API account. Only the &lt;em&gt;Application Name&lt;/em&gt; field is mandatory:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p align=&#34;center&#34;&gt;
+&lt;img width=&#34;500&#34; src=&#34;https://www.navidrome.org/screenshots/lastfm-create-account.png&#34;&gt;
+&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;After submitting the form, you can get the &lt;em&gt;API Key&lt;/em&gt; and &lt;em&gt;Shared Secret&lt;/em&gt; from the &lt;em&gt;Account Created&lt;/em&gt; page:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p align=&#34;center&#34;&gt;
+&lt;img width=&#34;500&#34; src=&#34;https://www.navidrome.org/screenshots/lastfm-account-created.png&#34;&gt;
+&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;Copy the values above to your &lt;a href=&#34;https://www.navidrome.org/docs/usage/configuration-options#configuration-file&#34;&gt;configuration file&lt;/a&gt; (or set them as environment variables)&lt;/li&gt;
+&lt;/ol&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Subsonic API Compatibility</title>
+      <link>https://www.navidrome.org/docs/developers/subsonic-api/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.navidrome.org/docs/developers/subsonic-api/</guid>
+      <description>
+        
+        
+        &lt;h3 id=&#34;supported-subsonic-api-endpoints&#34;&gt;Supported Subsonic API endpoints&lt;/h3&gt;
+&lt;p&gt;Navidrome is currently compatible with &lt;a href=&#34;http://www.subsonic.org/pages/api.jsp&#34;&gt;Subsonic API&lt;/a&gt;
+v1.16.1, with some exceptions.&lt;/p&gt;
+&lt;p&gt;This is a (hopefully) up-to-date list of all Subsonic API endpoints implemented in Navidrome.
+Check the &amp;ldquo;Notes&amp;rdquo; column for limitations/missing behavior. Also keep in mind these differences
+between Navidrome and Subsonic:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Navidrome will not implement any video related functionality, it is focused on Music only&lt;/li&gt;
+&lt;li&gt;Right now, Navidrome only works with a single Music Library (Music Folder)&lt;/li&gt;
+&lt;li&gt;There are currently no plans to support browse-by-folder. Endpoints for this functionality (Ex: &lt;code&gt;getIndexes&lt;/code&gt;, &lt;code&gt;getMusicDirectory&lt;/code&gt;)
+returns a simulated directory tree, using the format: &lt;code&gt;/Artist/Album/01 - Song.mp3&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Navidrome does not mark songs as played by calls to &lt;code&gt;stream&lt;/code&gt;, only when
+&lt;code&gt;scrobble&lt;/code&gt; is called with &lt;code&gt;submission=true&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;IDs in Navidrome are always strings, normally MD5 hashes or UUIDs. This is important to
+mention because, even though the Subsonic API
+&lt;a href=&#34;http://www.subsonic.org/pages/inc/api/schema/subsonic-rest-api-1.16.1.xsd&#34;&gt;schema&lt;/a&gt;
+specifies IDs as strings, some clients insist in converting IDs to integers&lt;/li&gt;
+&lt;/ul&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;em&gt;System&lt;/em&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;ping&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;getLicense&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Always valid ;)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;em&gt;Browsing&lt;/em&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;getMusicFolders&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Hardcoded to just one, set with ND_MUSICFOLDER configuration&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;getIndexes&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Doesn&amp;rsquo;t support &lt;code&gt;shortcuts&lt;/code&gt;, nor direct children&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;getMusicDirectory&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;getSong&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;getArtists&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;getArtist&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;getAlbum&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;getGenres&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;getArtistInfo&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Requires &lt;a href=&#34;https://www.navidrome.org/docs/usage/external-integrations/&#34;&gt;Last.fm and Spotify integration&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;getArtistInfo2&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Requires &lt;a href=&#34;https://www.navidrome.org/docs/usage/external-integrations/&#34;&gt;Last.fm and Spotify integration&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;getAlbumInfo&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Requires &lt;a href=&#34;https://www.navidrome.org/docs/usage/external-integrations/&#34;&gt;Last.fm and Spotify integration&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;getAlbumInfo2&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Requires &lt;a href=&#34;https://www.navidrome.org/docs/usage/external-integrations/&#34;&gt;Last.fm and Spotify integration&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;getTopSongs&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Requires &lt;a href=&#34;https://www.navidrome.org/docs/usage/external-integrations/&#34;&gt;Last.fm integration&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;getSimilarSongs&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Requires &lt;a href=&#34;https://www.navidrome.org/docs/usage/external-integrations/&#34;&gt;Last.fm integration&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;getSimilarSongs2&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Requires &lt;a href=&#34;https://www.navidrome.org/docs/usage/external-integrations/&#34;&gt;Last.fm integration&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;em&gt;Album/Songs Lists&lt;/em&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;getAlbumList&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;getAlbumList2&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;getStarred&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;getStarred2&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;getNowPlaying&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;getRandomSongs&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;getSongsByGenre&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;em&gt;Searching&lt;/em&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;search2&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Doesn&amp;rsquo;t support Lucene queries, only simple auto complete queries&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;search3&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Doesn&amp;rsquo;t support Lucene queries, only simple auto complete queries&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;em&gt;Playlists&lt;/em&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;getPlaylists&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;username&lt;/code&gt; parameter is not implemented&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;getPlaylist&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;createPlaylist&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;updatePlaylist&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;deletePlaylist&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;em&gt;Media Retrieval&lt;/em&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;stream&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;download&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Accepts ids for Songs, Albums, Artists and Playlists. Also accepts transcoding options similar to &lt;code&gt;stream&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;getCoverArt&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;getLyrics&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Currently only works with embedded lyrics&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;getAvatar&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;If Gravatar is enabled and the user has an email, returns a redirect to their Gravatar. Or else returns a placeholder&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;em&gt;Media Annotation&lt;/em&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;star&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;unstar&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;setRating&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;scrobble&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;em&gt;Bookmarks&lt;/em&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;getBookmarks&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;createBookmark&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;deleteBookmark&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;getPlayQueue&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;current&lt;/code&gt; is a string id, not &lt;code&gt;int&lt;/code&gt; as it shows in the official Subsonic API documentation&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;savePlayQueue&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;em&gt;Sharing&lt;/em&gt; (if &lt;code&gt;EnableSharing&lt;/code&gt; is &lt;code&gt;true&lt;/code&gt;)&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;getShares&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;createShare&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;updateShare&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;deleteShare&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;em&gt;Internet radio&lt;/em&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;getInternetRadioStations&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;createInternetRadioStation&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;updateInternetRadioStation&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;deleteInternetRadioStation&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;em&gt;User Management&lt;/em&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;getUser&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Hardcoded all roles. Ignores &lt;code&gt;username&lt;/code&gt; parameter, and returns the user identified in the authentication&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;getUsers&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Returns only the user identified in the authentication&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;em&gt;Media library scanning&lt;/em&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;getScanStatus&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Also returns the extra fields &lt;code&gt;lastScan&lt;/code&gt; and &lt;code&gt;folderCount&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;startScan&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Accepts an extra &lt;code&gt;fullScan&lt;/code&gt; boolean param, to force a full scan&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Sharing</title>
+      <link>https://www.navidrome.org/docs/usage/sharing/</link>
+      <pubDate>Mon, 02 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.navidrome.org/docs/usage/sharing/</guid>
+      <description>
+        
+        
+        
+
+&lt;div class=&#34;alert alert-warning&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;NOTE&lt;/h4&gt;
+
+    Please be aware that the Sharing feature is still under active development, and improvements to functionality and security are expected in future updates. Please report any issues or suggestions to the Navidrome GitHub issues page.
+
+&lt;/div&gt;
+
+&lt;p&gt;Navidrome has a &amp;ldquo;Sharing&amp;rdquo; feature which allows users to generate a shareable link for a track, album, artist, or playlist. This link can then be sent to friends, allowing them to listen or download the music without having an account on your Navidrome instance.&lt;/p&gt;
+&lt;h3 id=&#34;enabling-the-sharing-feature&#34;&gt;Enabling the Sharing Feature&lt;/h3&gt;
+&lt;p&gt;As of version 0.49.3, the Sharing feature is disabled by default. To enable it, you need to adjust your Navidrome
+&lt;a href=&#34;https://www.navidrome.org/docs/usage/configuration-options&#34;&gt;configuration&lt;/a&gt;. In your configuration file, set &lt;code&gt;EnableSharing=true&lt;/code&gt;, or set the
+environment variable &lt;code&gt;ND_ENABLESHARING=true&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Once the Sharing feature is enabled, all users will have access to all existing shares. This includes the ability to change the description and expiration date of the shares, as well as the capability to create new shares.&lt;/p&gt;
+&lt;p&gt;Please note that at this time, there is no way to set specific sharing permissions per user. This means that once the Sharing feature is enabled, all users have equal access and capabilities related to sharing. This includes the ability to view, modify, and create shares.&lt;/p&gt;
+&lt;p&gt;Due to this, we advise you to enable this feature only if you are comfortable with these permissions. Future updates may include more granular permission controls for sharing.&lt;/p&gt;
+&lt;h3 id=&#34;using-the-sharing-feature&#34;&gt;Using the Sharing Feature&lt;/h3&gt;
+&lt;p&gt;Once the Sharing feature is enabled, all users will be able to access current shares, modify descriptions and expiration, and create new ones. However, as of the initial implementation, there is currently no way to set permissions per user.&lt;/p&gt;
+&lt;p&gt;When browsing your music collection, you will notice a &amp;ldquo;Share&amp;rdquo; button or menu item available for each item, be it a track, album, artist, or playlist. To share an item, simply click on this &amp;ldquo;Share&amp;rdquo; button.&lt;/p&gt;
+&lt;p&gt;Upon clicking the &amp;ldquo;Share&amp;rdquo; button, a dialog box will appear, allowing you to configure your share. This includes setting a description other configurations for the share.&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;
+&lt;img width=&#34;400&#34; src=&#34;https://www.navidrome.org/screenshots/share-dialog.png&#34;&gt;
+&lt;/p&gt;
+&lt;p&gt;Once you have configured your share as desired, click the &amp;ldquo;Share&amp;rdquo; button. This will generate a unique shareable link, which you can then copy and share with your friends.&lt;/p&gt;
+&lt;p&gt;The generated sharable links will be in the following format: &lt;code&gt;http://yourserver.com/share/XXXXXXXXXX&lt;/code&gt;. If you have Navidrome behind a reverse proxy, ensure you allow traffic to &lt;code&gt;/share&lt;/code&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;subsonic-api-endpoints&#34;&gt;Subsonic API Endpoints&lt;/h3&gt;
+&lt;p&gt;The Sharing feature also implements the related Subsonic API endpoints.
+See the &lt;a href=&#34;https://opensubsonic.netlify.app/categories/sharing/&#34; target=&#34;_blank&#34;&gt;API docs for implemented endpoints&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;meta-tags-to-html&#34;&gt;Meta-tags to HTML&lt;/h3&gt;
+&lt;p&gt;Meta-tags are added to the HTML to provide some information about the shared music on chat platforms. Example of a link shared in Discord:&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;
+&lt;img width=&#34;400&#34; src=&#34;https://www.navidrome.org/screenshots/share-meta.png&#34;&gt;
+&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Monitoring Navidrome</title>
+      <link>https://www.navidrome.org/docs/usage/monitoring/</link>
+      <pubDate>Tue, 03 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.navidrome.org/docs/usage/monitoring/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Currently, navidrome supports monitoring and alerting using
+Prometheus/&lt;a href=&#34;https://github.com/OpenObservability/OpenMetrics/blob/main/specification/OpenMetrics.md&#34;&gt;OpenMetrics&lt;/a&gt;
+standard. Example Grafana dashboard:&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;
+&lt;img width=&#34;1000&#34; src=&#34;https://www.navidrome.org/screenshots/grafana-example.png&#34;&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;configuration&#34;&gt;Configuration&lt;/h3&gt;
+&lt;p&gt;You need to set &lt;code&gt;ND_PROMETHEUS_ENABLED&lt;/code&gt; to enable Prometheus metrics endpoint.
+Setting custom &lt;code&gt;ND_PROMETHEUS_METRICSPATH&lt;/code&gt; is highly recommended if your Navidrome
+instance is publicly available.&lt;/p&gt;
+&lt;p&gt;Minimal docker compose example file with metrics enabled:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yml&#34; data-lang=&#34;yml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;version&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;3&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;services&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;navidrome&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;image&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;deluan/navidrome&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;user&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1000&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1000&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# should be owner of volumes&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;ports&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;      &lt;/span&gt;- &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;4533:4533&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;environment&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;      &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;ND_PROMETHEUS_ENABLED&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;true&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;      &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;ND_PROMETHEUS_METRICSPATH&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/metrics_SOME_SECRET_KEY&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;volumes&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;      &lt;/span&gt;- &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;./data:/data&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;      &lt;/span&gt;- &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;./music:/music&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Example &lt;code&gt;prometheus.yml&lt;/code&gt; config to parse this instance:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yml&#34; data-lang=&#34;yml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;global&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;scrape_interval&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;10s&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;scrape_configs&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;- &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;job_name&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;navidrome&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;metrics_path&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;/metrics_SOME_SECRET_KEY&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;scheme&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;http&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;static_configs&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;      &lt;/span&gt;- &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;targets&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;YOUR_IP_HERE:4533&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;dashboard&#34;&gt;Dashboard&lt;/h3&gt;
+&lt;p&gt;Grafana dashboard available here: &lt;a href=&#34;https://grafana.com/grafana/dashboards/18038-navidrome/&#34;&gt;#18038&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Simple to install but fully fledged Grafana docker compose configuration
+can be found &lt;a href=&#34;https://github.com/Einsteinish/Docker-Compose-Prometheus-and-Grafana&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Security Considerations</title>
+      <link>https://www.navidrome.org/docs/usage/security/</link>
+      <pubDate>Mon, 02 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.navidrome.org/docs/usage/security/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;permissions&#34;&gt;Permissions&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;You should NOT run Navidrome as &lt;code&gt;root&lt;/code&gt;&lt;/strong&gt;. Ideally you should have it running under its own user. Navidrome only
+needs read-only access to the Music Folder, and read-write permissions to the Data Folder.&lt;/p&gt;
+&lt;h2 id=&#34;encrypted-passwords&#34;&gt;Encrypted passwords&lt;/h2&gt;
+&lt;p&gt;To be able to keep compatibility with the Subsonic API and its clients, Navidrome needs to store user&amp;rsquo;s passwords in its database. By default, Navidrome
+encrypts the passwords in the DB with a shared encryption key, just for the sake of obfuscation as this key can be easily found in the codebase.&lt;/p&gt;
+&lt;p&gt;This key can be overridden by the config option &lt;code&gt;PasswordEncryptionKey&lt;/code&gt;. Once this option is set and Navidrome is restarted, it will re-encrypt all passwords with this new key. This is a one-time only configuration, and after this point the config option cannot be changed anymore or else users won&amp;rsquo;t be able to authenticate.&lt;/p&gt;
+&lt;h2 id=&#34;network-configuration&#34;&gt;Network configuration&lt;/h2&gt;
+&lt;p&gt;Even though Navidrome comes with an embedded, full-featured HTTP server, you should seriously consider running it
+behind a reverse proxy (Ex: Caddy, Nginx, Traefik, Apache) for added security, including setting up SSL.
+There are tons of good resources on the web on how to properly setup a reverse proxy.&lt;/p&gt;
+&lt;p&gt;When using Navidrome in such configuration, you may want to prevent Navidrome from listening to all IPs configured
+in your computer, and only listen to &lt;code&gt;localhost&lt;/code&gt;. This can be achieved by setting the &lt;code&gt;Address&lt;/code&gt; flag to &lt;code&gt;localhost&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;reverse-proxy-authentication&#34;&gt;Reverse proxy authentication&lt;/h2&gt;
+&lt;p&gt;When reverse proxy authentication is used, the verification is done by another system. By checking a specific HTTP header,
+Navidrome assumes you are already authenticated. This header can be configured via &lt;code&gt;ReverseProxyUserHeader&lt;/code&gt; configuration
+option. By default, the &lt;code&gt;Remote-User&lt;/code&gt; header is used.&lt;/p&gt;
+&lt;p&gt;By default, Navidrome denies every attempt. Authentication proxy needs to be whitelisted in CIDR format, using
+&lt;code&gt;ReverseProxyWhitelist&lt;/code&gt;. Both IPv4 and IPv6 are supported.&lt;/p&gt;
+&lt;p&gt;If you enable this feature and uses a Subsonic client, you must whitelist the Subsonic API URL, as this authentication
+method is incompatible with the Subsonic authentication. You will need to whitelist the &lt;code&gt;/rest/*&lt;/code&gt; URLs.&lt;/p&gt;
+&lt;p&gt;If a user is successfully authenticated by the proxy, but it does not exist in the Navidrome DB, it will be created with
+a random password. The user can change this password if they plan to use a Subsonic client.&lt;/p&gt;
+&lt;p&gt;If you plan to use the Sharing option, where you can create unauthenticated links to parts of your library, you&amp;rsquo;ll
+need to whitelist &lt;code&gt;/share/*&lt;/code&gt; URLs.&lt;/p&gt;
+&lt;h2 id=&#34;transcoding-configuration&#34;&gt;Transcoding configuration&lt;/h2&gt;
+&lt;p&gt;To configure transcoding, Navidrome&amp;rsquo;s WebUI provide a screen that allows you to edit existing
+transcoding configurations and to add new ones. That is similar to other music servers available
+in the market that provide transcoding on-demand.&lt;/p&gt;
+&lt;p&gt;The issue with this is that it potentially allows an attacker to run any command in your server.
+This married with the fact that some Navidrome installations don&amp;rsquo;t use SSL and/or run it as a
+super-user (&lt;em&gt;root&lt;/em&gt; or &lt;em&gt;Administrator&lt;/em&gt;), is a recipe for disaster!&lt;/p&gt;
+&lt;p&gt;In an effort to make Navidrome as secure as possible, we decided to disable the transcoding
+configuration editing in the UI by default. If you need to edit it (add or change a configuration),
+start Navidrome with the &lt;code&gt;ND_ENABLETRANSCODINGCONFIG&lt;/code&gt; set to &lt;code&gt;true&lt;/code&gt;. After doing your changes,
+don&amp;rsquo;t forget to remove this option or set it to &lt;code&gt;false&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;limit-login-attempts&#34;&gt;Limit login attempts&lt;/h2&gt;
+&lt;p&gt;To protect against brute-force attacks, Navidrome is configured by default with a login rate limiter,
+It uses a &lt;a href=&#34;https://blog.cloudflare.com/counting-things-a-lot-of-different-things/#slidingwindowstotherescue&#34;&gt;Sliding Window&lt;/a&gt;
+algorithm to block too many consecutive login attempts. It is enabled by default and you don&amp;rsquo;t need to do anything.
+The rate limiter can be fine tuned using the flags &lt;code&gt;AuthRequestLimit&lt;/code&gt; and &lt;code&gt;AuthWindowLength&lt;/code&gt; and can be disabled by
+setting &lt;code&gt;AuthRequestLimit&lt;/code&gt; to &lt;code&gt;0&lt;/code&gt;, though it is not recommended.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Installing with Docker</title>
+      <link>https://www.navidrome.org/docs/installation/docker/</link>
+      <pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.navidrome.org/docs/installation/docker/</guid>
+      <description>
+        
+        
+        &lt;p&gt;&lt;a href=&#34;https://hub.docker.com/r/deluan/navidrome&#34;&gt;Docker images&lt;/a&gt; are available for the
+&lt;em&gt;linux/amd64&lt;/em&gt;, &lt;em&gt;linux/arm/v6&lt;/em&gt;, &lt;em&gt;linux/arm/v7&lt;/em&gt; and &lt;em&gt;linux/arm64&lt;/em&gt; platforms. They include everything needed to
+run Navidrome.&lt;/p&gt;
+&lt;h3 id=&#34;using-docker-compose-&#34;&gt;Using &lt;code&gt;docker-compose&lt;/code&gt; :&lt;/h3&gt;
+&lt;p&gt;Create a &lt;code&gt;docker-compose.yml&lt;/code&gt; file with the following content (or add the &lt;code&gt;navidrome&lt;/code&gt; service
+below to your existing file):&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;version&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;3&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;services&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;navidrome&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;image&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;deluan/navidrome:latest&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;user&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1000&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1000&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# should be owner of volumes&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;ports&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;      &lt;/span&gt;- &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;4533:4533&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;restart&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;unless-stopped&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;environment&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;      &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Optional: put your config options customization here. Examples:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;      &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;ND_SCANSCHEDULE&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;1h&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;      &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;ND_LOGLEVEL&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;info  &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;      &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;ND_SESSIONTIMEOUT&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;24h&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;      &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;ND_BASEURL&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;volumes&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;      &lt;/span&gt;- &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/path/to/data:/data&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;      &lt;/span&gt;- &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/path/to/your/music/folder:/music:ro&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Start it with &lt;code&gt;docker-compose up -d&lt;/code&gt;. Note that the environment variables above are just an example and are not required. The
+values in the example are already the defaults&lt;/p&gt;
+&lt;h3 id=&#34;using-docker-command-line-tool&#34;&gt;Using &lt;code&gt;docker&lt;/code&gt; command line tool:&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ docker run -d &lt;span style=&#34;color:#4e9a06&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;   --name navidrome &lt;span style=&#34;color:#4e9a06&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;   --restart&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;unless-stopped &lt;span style=&#34;color:#4e9a06&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;   --user &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;$(&lt;/span&gt;id -u&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;)&lt;/span&gt;:&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;$(&lt;/span&gt;id -g&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;   -v /path/to/music:/music &lt;span style=&#34;color:#4e9a06&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;   -v /path/to/data:/data &lt;span style=&#34;color:#4e9a06&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;   -p 4533:4533 &lt;span style=&#34;color:#4e9a06&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;   -e &lt;span style=&#34;color:#000&#34;&gt;ND_LOGLEVEL&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;info &lt;span style=&#34;color:#4e9a06&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;   deluan/navidrome:latest
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;customization&#34;&gt;Customization&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;The &lt;code&gt;user&lt;/code&gt; argument should ideally reflect the &lt;code&gt;UID:GID&lt;/code&gt; of the owner of the music library to avoid permission issues. For testing purpose you could omit this directive, but as a rule of thumb you should not run a production container as &lt;code&gt;root&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Remember to change the &lt;code&gt;volumes&lt;/code&gt; paths to point to your local paths. &lt;code&gt;/data&lt;/code&gt; is where Navidrome
+will store its DB and cache, &lt;code&gt;/music&lt;/code&gt; is where your music files are stored.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.navidrome.org/docs/usage/configuration-options/&#34;&gt;Configuration options&lt;/a&gt; can be customized with environment
+variables as needed. For &lt;code&gt;docker-compose&lt;/code&gt; just add them to the &lt;code&gt;environment&lt;/code&gt; section or the yml
+file. For &lt;code&gt;docker&lt;/code&gt; cli use the &lt;code&gt;-e&lt;/code&gt; parameter. Ex: &lt;code&gt;-e ND_SESSIONTIMEOUT=24h&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;If you want to use a &lt;a href=&#34;https://www.navidrome.org/docs/usage/configuration-options/#configuration-file&#34;&gt;configuration file&lt;/a&gt; with Navidrome running in Docker,
+you can create a &lt;code&gt;navidrome.toml&lt;/code&gt; config file in the &lt;code&gt;/data&lt;/code&gt; folder and set the option &lt;code&gt;ND_CONFIGFILE=/data/navidrome.toml&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Linux Install</title>
+      <link>https://www.navidrome.org/docs/installation/linux/</link>
+      <pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.navidrome.org/docs/installation/linux/</guid>
+      <description>
+        
+        
+        
+
+&lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;
+&lt;p&gt;&lt;strong&gt;NOTE:&lt;/strong&gt; These instructions were created for the Ubuntu distribution, and even though they contain specific Ubuntu/Debian instructions (ex: &lt;code&gt;apt&lt;/code&gt;) the concepts are generic enough and can be applied on most Linux distributions, even on those not based on Debian (ex: CentOS and OpenSUSE)&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;The following steps have been tested on Ubuntu 18.04 and should work on all version 16.04 and above as well as other Debian based distros. Throughout these instructions the commands will have placeholders for the user (&lt;code&gt;&amp;lt;user&amp;gt;&lt;/code&gt;) and group (&lt;code&gt;&amp;lt;group&amp;gt;&lt;/code&gt;) you want to run Navidrome under and the music folder path (&lt;code&gt;&amp;lt;library_path&amp;gt;&lt;/code&gt;). If you are using an existing media library ensure the user has permissions to the media library.&lt;/p&gt;
+&lt;h3 id=&#34;update-and-install-prerequisites&#34;&gt;Update and Install Prerequisites&lt;/h3&gt;
+&lt;p&gt;Ensure your system is up to date and install &lt;a href=&#34;https://ffmpeg.org/download.html&#34;&gt;ffmpeg&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo apt update
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo apt upgrade
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo apt install vim ffmpeg
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;create-directory-structure&#34;&gt;Create Directory Structure&lt;/h3&gt;
+&lt;p&gt;Create a directory to store the Navidrome executable and a working directory with the proper permissions.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo install -d -o &amp;lt;user&amp;gt; -g &amp;lt;group&amp;gt; /opt/navidrome
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo install -d -o &amp;lt;user&amp;gt; -g &amp;lt;group&amp;gt; /var/lib/navidrome
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;get-navidrome&#34;&gt;Get Navidrome&lt;/h3&gt;
+&lt;p&gt;Download the latest release from the &lt;a href=&#34;https://github.com/navidrome/navidrome/releases&#34;&gt;releases page&lt;/a&gt;, extract the contents to the executable directory, and set the permissions for the files. (Replace the URL below with the one from the releases page):&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;wget https://github.com/navidrome/navidrome/releases/download/v0.XX.0/navidrome_0.XX.0_Linux_x86_64.tar.gz -O Navidrome.tar.gz
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo tar -xvzf Navidrome.tar.gz -C /opt/navidrome/
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo chown -R &amp;lt;user&amp;gt;:&amp;lt;group&amp;gt; /opt/navidrome
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;create-configuration-file&#34;&gt;Create Configuration File&lt;/h3&gt;
+&lt;p&gt;In the working directory, &lt;code&gt;/var/lib/navidrome&lt;/code&gt; create a new file named &lt;code&gt;navidrome.toml&lt;/code&gt; with the following settings.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-toml&#34; data-lang=&#34;toml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;MusicFolder&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&amp;lt;library_path&amp;gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;For additional configuration options see the &lt;a href=&#34;https://www.navidrome.org/docs/usage/configuration-options/&#34;&gt;configuration options page&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;create-a-systemd-unit&#34;&gt;Create a Systemd Unit&lt;/h3&gt;
+&lt;p&gt;Create a new file under &lt;code&gt;/etc/systemd/system/&lt;/code&gt; named &lt;code&gt;navidrome.service&lt;/code&gt; with the following data. Make sure you replace
+&lt;code&gt;&amp;lt;user&amp;gt;&lt;/code&gt; and &lt;code&gt;&amp;lt;group&amp;gt;&lt;/code&gt; with the user and group you want to run Navidrome under.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-systemd&#34; data-lang=&#34;systemd&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;[Unit]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c4a000&#34;&gt;Description&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;Navidrome Music Server and Streamer compatible with Subsonic/Airsonic&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c4a000&#34;&gt;After&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;remote-fs.target network.target&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c4a000&#34;&gt;AssertPathExists&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;/var/lib/navidrome&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;[Install]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c4a000&#34;&gt;WantedBy&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;multi-user.target&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;[Service]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c4a000&#34;&gt;User&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;lt;user&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c4a000&#34;&gt;Group&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;lt;group&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c4a000&#34;&gt;Type&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;simple&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c4a000&#34;&gt;ExecStart&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;/opt/navidrome/navidrome --configfile &amp;#34;/var/lib/navidrome/navidrome.toml&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c4a000&#34;&gt;WorkingDirectory&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;/var/lib/navidrome&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c4a000&#34;&gt;TimeoutStopSec&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;20&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c4a000&#34;&gt;KillMode&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;process&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c4a000&#34;&gt;Restart&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;on-failure&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# See https://www.freedesktop.org/software/systemd/man/systemd.exec.html&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c4a000&#34;&gt;DevicePolicy&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;closed&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c4a000&#34;&gt;NoNewPrivileges&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;yes&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c4a000&#34;&gt;PrivateTmp&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;yes&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c4a000&#34;&gt;PrivateUsers&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;yes&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c4a000&#34;&gt;ProtectControlGroups&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;yes&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c4a000&#34;&gt;ProtectKernelModules&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;yes&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c4a000&#34;&gt;ProtectKernelTunables&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;yes&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c4a000&#34;&gt;RestrictAddressFamilies&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;AF_UNIX AF_INET AF_INET6&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c4a000&#34;&gt;RestrictNamespaces&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;yes&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c4a000&#34;&gt;RestrictRealtime&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;yes&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c4a000&#34;&gt;SystemCallFilter&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;~@clock @debug @module @mount @obsolete @reboot @setuid @swap&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c4a000&#34;&gt;ReadWritePaths&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;/var/lib/navidrome&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# You can uncomment the following line if you&amp;#39;re not using the jukebox This&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# will prevent navidrome from accessing any real (physical) devices&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;#PrivateDevices=yes&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# You can change the following line to `strict` instead of `full` if you don&amp;#39;t&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# want navidrome to be able to write anything on your filesystem outside of&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# /var/lib/navidrome.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c4a000&#34;&gt;ProtectSystem&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;full&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# You can uncomment the following line if you don&amp;#39;t have any media in /home/*.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# This will prevent navidrome from ever reading/writing anything there.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;#ProtectHome=true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# You can customize some Navidrome config options by setting environment variables here. Ex:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;#Environment=ND_BASEURL=&amp;#34;/navidrome&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;start-the-navidrome-service&#34;&gt;Start the Navidrome Service&lt;/h3&gt;
+&lt;p&gt;Reload the service daemon, start the newly create service, and verify it has started correctly.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo systemctl daemon-reload
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo systemctl start navidrome.service
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo systemctl status navidrome.service
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If the service has started correctly verify you can access &lt;a href=&#34;http://localhost:4533&#34;&gt;http://localhost:4533&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;start-navidrome-on-startup&#34;&gt;Start Navidrome on Startup&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo systemctl &lt;span style=&#34;color:#204a87&#34;&gt;enable&lt;/span&gt; navidrome.service
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Windows Install</title>
+      <link>https://www.navidrome.org/docs/installation/windows/</link>
+      <pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.navidrome.org/docs/installation/windows/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Since Navidrome needs to be run from the command line, it is suggested to use a service wrapper to make it into a service as it does not make sense to have a terminal window open whenever you want to use Navidrome.
+The examples below are for &lt;a href=&#34;https://github.com/mtkennerly/shawl&#34;&gt;Shawl&lt;/a&gt;, &lt;a href=&#34;http://nssm.cc/&#34;&gt;NSSM&lt;/a&gt; and &lt;a href=&#34;https://github.com/winsw/winsw&#34;&gt;WinSW&lt;/a&gt;.&lt;/p&gt;
+
+
+&lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;Note&lt;/h4&gt;
+
+    The default account for new services is the &lt;code&gt;Local System&lt;/code&gt; account, which has a different &lt;code&gt;PATH&lt;/code&gt; environment variable than your user account.&lt;br&gt;
+If you need to have access to your user account&amp;rsquo;s &lt;code&gt;PATH&lt;/code&gt; environment variables, the easiest way is to change the user account used by the service. To do so, open the Services management console (Win+R, then open &lt;code&gt;services.msc&lt;/code&gt;), locate the Navidrome service, head to the &lt;code&gt;Log On&lt;/code&gt; tab, and change it there.
+
+&lt;/div&gt;
+
+&lt;h3 id=&#34;using-shawl&#34;&gt;Using Shawl&lt;/h3&gt;
+&lt;p&gt;Prebuilt binaries are available on the &lt;a href=&#34;https://github.com/mtkennerly/shawl/releases&#34;&gt;releases page&lt;/a&gt; of Shawl. It&amp;rsquo;s portable, so you can simply download it and put it anywhere without going through an installer. Otherwise if you have Rust installed, you can run &lt;code&gt;cargo install shawl&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Here&amp;rsquo;s how you create the service with Shawl, then start it. Note that this has to be run from an administrator command prompt.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bat&#34; data-lang=&#34;bat&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;shawl add --name Navidrome -- &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;C:\Services\navidrome\navidrome.exe&amp;#34;&lt;/span&gt; -c &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;C:\Services\navidrome\navidrome.toml&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sc start Navidrome
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;Note&lt;/h4&gt;
+
+    When using Shawl, you have to use absolute paths when specifying folders/files as arguments to the navidrome binary and in the configuration file (remember to escape the backslashes in the configuration file). Refer to the &lt;a href=&#34;https://www.navidrome.org/docs/usage/configuration-options&#34;&gt;configuration options page&lt;/a&gt; for more information about the available options.
+
+&lt;/div&gt;
+
+&lt;h3 id=&#34;using-nssm&#34;&gt;Using NSSM&lt;/h3&gt;
+&lt;p&gt;No installation is required for NSSM. Just grab the latest release from their &lt;a href=&#34;https://nssm.cc/download&#34;&gt;download page&lt;/a&gt; and install the Navidrome service from an administrator command prompt using NSSM:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bat&#34; data-lang=&#34;bat&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;nssm install Navidrome
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This opens a window where you can set the properties of the service; most notably, the path to the executable, the user account on which to run the service, the output files (&lt;code&gt;stout&lt;/code&gt; and &lt;code&gt;sterr&lt;/code&gt;) and file rotation. More information about the configurable options can be found &lt;a href=&#34;http://nssm.cc/usage&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;You can also bypass the GUI and install the service from the command line only. Below is an example:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bat&#34; data-lang=&#34;bat&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;nssm install Navidrome &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;C:\Services\navidrome\navidrome.exe&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;nssm set Navidrome AppDirectory &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;C:\Services\navidrome\&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;nssm set Navidrome DisplayName Navidrome
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# The username and password of the user account under which the service will run.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;nssm set Navidrome ObjectName &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;username&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;password&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;nssm set Navidrome AppStdout &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;C:\Services\navidrome\navidrome.log&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;nssm set Navidrome AppStderr &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;C:\Services\navidrome\navidrome.log&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;nssm set Navidrome AppRotateFiles 1
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;nssm set Navidrome AppRotateSeconds 86400
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;nssm set Navidrome AppRotateBytes 10240
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# Start the service
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sc start Navidrome
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;using-winsw&#34;&gt;Using WinSW&lt;/h3&gt;
+&lt;p&gt;To use WinSW, download the WinSW binary from their &lt;a href=&#34;https://github.com/winsw/winsw/releases&#34;&gt;download page&lt;/a&gt;. WinSW also requires a configuration file (more details about the WinSW configuration file &lt;a href=&#34;https://github.com/winsw/winsw/blob/v3/docs/xml-config-file.md&#34;&gt;here&lt;/a&gt;) to be able to manage an application.&lt;/p&gt;
+&lt;p&gt;A basic example (where both Navidrome and the WinSW configuration file are in the same directory) for Navidrome is down below:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;service&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;id&amp;gt;&lt;/span&gt;Navidrome&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;/id&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;name&amp;gt;&lt;/span&gt;Navidrome&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;/name&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;description&amp;gt;&lt;/span&gt;Modern Music Server and Streamer compatible with Subsonic/Airsonic&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;/description&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;executable&amp;gt;&lt;/span&gt;C:\Services\navidrome\navidrome.exe&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;/executable&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;arguments&amp;gt;&lt;/span&gt;-c navidrome.toml&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;/arguments&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;log&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;mode=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;roll-by-size&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;gt;&amp;lt;/log&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;/service&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;Note&lt;/h4&gt;
+
+    When specifying files or folders in the WinSW configuration file, relative paths are resolved based on where the configuration file is located.
+
+&lt;/div&gt;
+
+&lt;p&gt;Save this in a file named &lt;code&gt;navidrome.xml&lt;/code&gt;. Then, run these commands from an administrator command prompt to install the service, start it and check its status:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bat&#34; data-lang=&#34;bat&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;winsw install navidrome.xml
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;winsw start navidrome.xml
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;winsw status navidrome.xml
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Verify that the service has started as expected by navigating to &lt;a href=&#34;http://localhost:4533&#34;&gt;http://localhost:4533&lt;/a&gt;, by checking the Services Management Console or by checking the log file that the service wrapper created.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: macOS Install</title>
+      <link>https://www.navidrome.org/docs/installation/macos/</link>
+      <pubDate>Wed, 04 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.navidrome.org/docs/installation/macos/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Navidrome can be ran by simply double-clicking the binary that has been downloaded from the &lt;a href=&#34;https://github.com/navidrome/navidrome/releases/latest&#34;&gt;release page&lt;/a&gt; or by running it in the command line. However, that will keep a terminal window open while Navidrome is running.&lt;/p&gt;
+&lt;p&gt;To have Navidrome running in the background, we can run it as a service.
+We define a service as shown below and save that in a file named &lt;code&gt;navidrome.plist&lt;/code&gt; in the &lt;code&gt;~/Library/LaunchAgents/&lt;/code&gt; folder.&lt;/p&gt;
+&lt;p&gt;The example shown assumes a few things:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;The binary has been downloaded and extracted to the &lt;code&gt;/opt/navidrome&lt;/code&gt; folder.&lt;/li&gt;
+&lt;li&gt;A &lt;a href=&#34;https://www.navidrome.org/docs/usage/configuration-options&#34;&gt;configuration file&lt;/a&gt; for Navidrome has been created and is named &lt;code&gt;navidrome.toml&lt;/code&gt; in that folder. Be sure to set the &lt;code&gt;DataFolder&lt;/code&gt; option as well.&lt;/li&gt;
+&lt;li&gt;A log file for Navidrome has been created and is named &lt;code&gt;navidrome.log&lt;/code&gt; in that folder.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;UTF-8&amp;#34;?&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&amp;lt;!DOCTYPE plist PUBLIC &amp;#34;-//Apple Computer//DTD PLIST 1.0//EN&amp;#34; &amp;#34;http://www.apple.com/DTDs/PropertyList-1.0.dtd&amp;#34;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;plist&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;version=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;1.0&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;dict&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;key&amp;gt;&lt;/span&gt;Label&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;string&amp;gt;&lt;/span&gt;navidrome&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;key&amp;gt;&lt;/span&gt;ProgramArguments&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;array&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;string&amp;gt;&lt;/span&gt;/opt/navidrome/navidrome&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;string&amp;gt;&lt;/span&gt;-c&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;string&amp;gt;&lt;/span&gt;/opt/navidrome/navidrome.toml&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;/array&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;key&amp;gt;&lt;/span&gt;RunAtLoad&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;true/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;key&amp;gt;&lt;/span&gt;StandardOutPath&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;string&amp;gt;&lt;/span&gt;/opt/navidrome/navidrome.log&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;key&amp;gt;&lt;/span&gt;StandardErrorPath&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;string&amp;gt;&lt;/span&gt;/opt/navidrome/navidrome.log&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;/dict&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;/plist&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Then to load the service, run:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;launchctl load ~/Library/LaunchAgents/navidrome.plist
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;To start the service, run:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;launchctl start navidrome
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;You can verify that Navidrome has started by navigating to &lt;a href=&#34;http://localhost:4533&#34;&gt;http://localhost:4533&lt;/a&gt;, by running &lt;code&gt;launchctl list | grep navidrome&lt;/code&gt; or by checking the log file specified.&lt;/p&gt;
+&lt;p&gt;To stop the service, run:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;launchctl stop navidrome
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: FreeBSD Install</title>
+      <link>https://www.navidrome.org/docs/installation/freebsd/</link>
+      <pubDate>Tue, 03 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.navidrome.org/docs/installation/freebsd/</guid>
+      <description>
+        
+        
+        &lt;p&gt;The following steps have been tested on FreeBSD 12 and 13.  They should work on all versions 11.4 and above as well as other supported versions. All prerequisites will be automatically installed when using a package or if building from ports. Throughout these instructions the commands will have placeholders for the user (&lt;code&gt;&amp;lt;user&amp;gt;&lt;/code&gt;) and group (&lt;code&gt;&amp;lt;group&amp;gt;&lt;/code&gt;) you want to run Navidrome under and the music folder path (&lt;code&gt;&amp;lt;library_path&amp;gt;&lt;/code&gt;). If you are using an existing media library ensure the user has permissions to the media library.&lt;/p&gt;
+&lt;h3 id=&#34;install-using-package&#34;&gt;Install Using Package&lt;/h3&gt;
+&lt;p&gt;Use the package tool (pkg) to install Navidrome from a binary package.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;pkg install navidrome
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Follow any on screen instructions to complete your installation.&lt;/p&gt;
+&lt;h3 id=&#34;build--install-using-ports&#34;&gt;Build &amp;amp; Install Using Ports&lt;/h3&gt;
+&lt;p&gt;Instead of using a binary package you can build from source.  Before you start, make sure your local ports tree is up to date.  Refer to the &lt;a href=&#34;https://docs.freebsd.org/en/books/handbook/ports/#ports-using&#34;&gt;FreeBSD Handbook&lt;/a&gt; on the recommended way to fetch or update your ports tree.&lt;/p&gt;
+&lt;p&gt;Switch to the port directory for Navidrome and run &lt;code&gt;make install&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87&#34;&gt;cd&lt;/span&gt; /usr/ports/multimedia/navidrome
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;make install
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The build process could take several minutes depending on the speed of your computer.  Follow any on screen instructions to complete your installation.&lt;/p&gt;
+&lt;h3 id=&#34;start-the-navidrome-service&#34;&gt;Start the Navidrome Service&lt;/h3&gt;
+&lt;p&gt;Start the service and verify it has started correctly.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;service navidrome onestart
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;service navidrome onestatus
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Navidrome is configured to listen on &lt;code&gt;127.0.0.1&lt;/code&gt; on port &lt;code&gt;4533&lt;/code&gt;.  The &amp;lt;library_path&amp;gt; is preset to &lt;code&gt;${PREFIX}/share/navidrome/music&lt;/code&gt;
+If the service has started correctly, verify you can access &lt;a href=&#34;http://localhost:4533&#34;&gt;http://localhost:4533&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;To run Navidrome at system startup, enable the service in &lt;code&gt;/etc/rc.conf&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sysrc &lt;span style=&#34;color:#000&#34;&gt;navidrome_enable&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;YES&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;customizing-your-installation&#34;&gt;Customizing your Installation&lt;/h2&gt;
+&lt;p&gt;The defaults provided out of the box by the port and package are sufficient to get your started.  You can customize these settings if required by using a combonation of &lt;code&gt;/etc/rc.conf&lt;/code&gt; and the Navidrome configuration file.&lt;/p&gt;
+&lt;h3 id=&#34;run-as-a-different-user&#34;&gt;Run as a Different User&lt;/h3&gt;
+&lt;p&gt;Navidrome will run as the &lt;code&gt;www&lt;/code&gt; user.  If you need to change it to something else use &lt;code&gt;/etc/rc.conf&lt;/code&gt; to set a user and group.
+You can easily adjust this using the &lt;code&gt;sysrc&lt;/code&gt; tool:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sysrc navidrome_user=&amp;#34;&amp;lt;user&amp;gt;&amp;#34;
+sysrc navidrome_group=&amp;#34;&amp;lt;group&amp;gt;&amp;#34;
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;configuration-file-location&#34;&gt;Configuration File Location&lt;/h3&gt;
+&lt;p&gt;A default configuration file will be installed under &lt;code&gt;/usr/local/etc/navidrome&lt;/code&gt; named &lt;code&gt;config.toml&lt;/code&gt;.  This can be changed by setting a new path in &lt;code&gt;/etc/rc.conf&lt;/code&gt;.
+You can easily adjust this using the &lt;code&gt;sysrc&lt;/code&gt; tool:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sysrc &lt;span style=&#34;color:#000&#34;&gt;navidrome_config&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/path/to/new/config_file.toml&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Make sure the user Navidrome is running as has permission to read the file.&lt;/p&gt;
+&lt;p&gt;For additional configuration options see the &lt;a href=&#34;https://www.navidrome.org/docs/usage/configuration-options/&#34;&gt;configuration options page&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;data-folder&#34;&gt;Data Folder&lt;/h3&gt;
+&lt;p&gt;The data folder is located under &lt;code&gt;/var/db/navidrome&lt;/code&gt;.  The prefered way to change this is by using &lt;code&gt;/etc/rc.conf&lt;/code&gt;
+You can easily adjust this using the &lt;code&gt;sysrc&lt;/code&gt; tool:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sysrc navidrome_datafolder=&amp;#34;/path/to/new/folder&amp;#34;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Make sure the user Navidrome is running as has permission to read and write to the folder contents.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Community Maintained Packages</title>
+      <link>https://www.navidrome.org/docs/installation/packages/</link>
+      <pubDate>Mon, 01 Feb 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.navidrome.org/docs/installation/packages/</guid>
+      <description>
+        
+        
+        
+
+&lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;
+&lt;p&gt;&lt;strong&gt;DISCLAIMER&lt;/strong&gt;: These packages are not maintained by the Navidrome project, any issues should be reported to their authors.&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;Even though the Navidrome project does not provide any pre-packaged installation for specific platforms,
+there are some packages created and maintained by the community, that can simplify the setup on some systems.&lt;/p&gt;
+&lt;p&gt;Here is the list of packages for various OSes/Distributions, provided by Repology:&lt;/p&gt;
+&lt;a href=&#34;https://repology.org/project/navidrome/versions&#34;&gt;
+&lt;p&gt;
+&lt;img src=&#34;https://repology.org/badge/vertical-allrepos/navidrome.svg&#34; alt=&#34;Packaging status&#34;&gt;
+&lt;/p&gt;
+&lt;/a&gt;
+&lt;p&gt;More packages available, with links to download/install instructions:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;System&lt;/th&gt;
+&lt;th&gt;Information&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Ansible Role&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/zfuller/navidrome-role&#34;&gt;https://github.com/zfuller/navidrome-role&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Arch Linux&lt;/td&gt;
+&lt;td&gt;You can install Navidrome via the &lt;a href=&#34;https://aur.archlinux.org/packages/navidrome-bin/&#34;&gt;&lt;code&gt;navidrome-bin&lt;/code&gt;&lt;/a&gt; package in the &lt;a href=&#34;https://aur.archlinux.org/&#34;&gt;AUR&lt;/a&gt;. &lt;br/&gt; Alternatively, you can install using the &lt;a href=&#34;https://aur.archlinux.org/packages/navidrome-git/&#34;&gt;&lt;code&gt;navidrome-git&lt;/code&gt;&lt;/a&gt; package which will compile Navidrome from source.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Cloudron&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.cloudron.io/store/org.navidrome.cloudronapp.html&#34;&gt;https://www.cloudron.io/store/org.navidrome.cloudronapp.html&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Fedora&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://copr.fedorainfracloud.org/coprs/lchh/navidrome/&#34;&gt;https://copr.fedorainfracloud.org/coprs/lchh/navidrome/&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Kubernets Chart&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://artifacthub.io/packages/helm/emmas-charts/navidrome&#34;&gt;https://artifacthub.io/packages/helm/emmas-charts/navidrome&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Nix/NixOS&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/NixOS/nixpkgs/blob/nixos-unstable/pkgs/servers/misc/navidrome/default.nix&#34;&gt;Package&lt;/a&gt; and &lt;a href=&#34;https://github.com/NixOS/nixpkgs/blob/nixos-unstable/nixos/modules/services/audio/navidrome.nix&#34;&gt;module&lt;/a&gt; definitions in &lt;a href=&#34;https://github.com/NixOS/nixpkgs&#34;&gt;nixpkgs&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;OpenMediaVault&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://forum.openmediavault.org/index.php?thread/36635-how-to-install-navidrome-using-docker-compose-an-airsonic-booksonic-alternative/&#34;&gt;Instructions using docker-compose&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;QNAP&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.qnapclub.eu/en/qpkg/958&#34;&gt;https://www.qnapclub.eu/en/qpkg/958&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;TrueNAS SCALE&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://truecharts.org/apps/stable/navidrome&#34;&gt;https://truecharts.org/apps/stable/navidrome&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;YunoHost&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://yunohost.org/en/app_navidrome&#34;&gt;https://yunohost.org/en/app_navidrome&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;If you create, or know of, other Navidrome packages that are publicly available, please &lt;a href=&#34;https://github.com/navidrome/website/edit/master/content/en/docs/Installation/packages.md&#34;&gt;add to the list above&lt;/a&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Managed Hosting</title>
+      <link>https://www.navidrome.org/docs/installation/managed/</link>
+      <pubDate>Sun, 10 Jan 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.navidrome.org/docs/installation/managed/</guid>
+      <description>
+        
+        
+        &lt;p&gt;The following providers offer managed hosting for Navidrome. This can be a good option if you
+don&amp;rsquo;t want to manage your own server.&lt;/p&gt;
+&lt;h3 id=&#34;pikapods&#34;&gt;PikaPods&lt;/h3&gt;
+
+
+&lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.pikapods.com/&#34;&gt;PikaPods&lt;/a&gt; has partnered with us to offer you an &lt;strong&gt;officially
+supported, cloud-hosted solution&lt;/strong&gt;&lt;a href=&#34;https://www.navidrome.org/docs/faq/#which-cloud-providers-help-fund-the-project-with-a-revenue-share&#34;&gt;*&lt;/a&gt;.&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;Offers 1-click deployments for Navidrome with $5 free welcome credit. EU and US regions available.
+Includes daily backups and regular app updates.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.pikapods.com/pods?run=navidrome&#34;&gt;&lt;img src=&#34;https://www.pikapods.com/static/run-button.svg&#34; alt=&#34;Run on PikaPods&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Build from sources</title>
+      <link>https://www.navidrome.org/docs/installation/build-from-source/</link>
+      <pubDate>Tue, 05 Jan 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.navidrome.org/docs/installation/build-from-source/</guid>
+      <description>
+        
+        
+        
+
+&lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;
+&lt;p&gt;Currently these instructions only work for Unix-based systems (Linux, macOS, BSD, &amp;hellip;). If you are getting
+trouble trying to build Navidrome in a Windows system, please join our &lt;a href=&#34;https://discord.gg/xh7j7yF&#34;&gt;Discord server&lt;/a&gt;
+and ask for help, we will be glad to assist you&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;If you can&amp;rsquo;t find a &lt;a href=&#34;https://github.com/navidrome/navidrome/releases&#34;&gt;pre-built binary&lt;/a&gt; for your platform,
+you should open an &lt;a href=&#34;https://github.com/navidrome/navidrome/issues&#34;&gt;issue in the project&amp;rsquo;s GitHub page&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;If you don&amp;rsquo;t want to wait, you can try to build the binary yourself, with the following steps.&lt;/p&gt;
+&lt;p&gt;First, you will need to install &lt;a href=&#34;https://golang.org/doc/install&#34;&gt;Go 1.19+&lt;/a&gt; and
+&lt;a href=&#34;http://nodejs.org&#34;&gt;Node 16&lt;/a&gt;. The setup is very strict, and the steps below only work with
+these versions (enforced in the Makefile). Make sure to add &lt;code&gt;$GOPATH/bin&lt;/code&gt; to your &lt;code&gt;PATH&lt;/code&gt; as described
+in the &lt;a href=&#34;https://golang.org/doc/gopath_code.html#GOPATH&#34;&gt;official Go site&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;You&amp;rsquo;ll also need to install the &lt;a href=&#34;http://taglib.org&#34;&gt;TagLib&lt;/a&gt; library:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Debian/Ubuntu: &lt;code&gt;sudo apt install libtag1-dev&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Arch Linux: &lt;code&gt;pacman -S taglib&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;macOS: &lt;code&gt;brew install taglib&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;FreeBSD: &lt;code&gt;pkg install taglib&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;For other platforms check their &lt;a href=&#34;https://github.com/taglib/taglib/blob/master/INSTALL.md&#34;&gt;installation instructions&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;After the prerequisites above are installed, clone Navidrome&amp;rsquo;s repository and build it:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ git clone https://github.com/navidrome/navidrome
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ &lt;span style=&#34;color:#204a87&#34;&gt;cd&lt;/span&gt; navidrome
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ make setup        &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Install build dependencies&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ make buildall     &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Build UI and server, generates a single executable&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;On FreeBSD you have to use &lt;code&gt;gmake&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ git clone https://github.com/navidrome/navidrome
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ &lt;span style=&#34;color:#204a87&#34;&gt;cd&lt;/span&gt; navidrome
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ gmake setup        &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Install build dependencies&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ gmake buildall     &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Build UI and server, generates a single executable&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This will generate the &lt;code&gt;navidrome&lt;/code&gt; executable binary in the project&amp;rsquo;s root folder.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;NOTE:&lt;/strong&gt; Remember to install &lt;a href=&#34;https://ffmpeg.org/download.html&#34;&gt;ffmpeg&lt;/a&gt; in your system, a requirement for Navidrome to work
+properly. You may find the latest static build for your platform here: &lt;a href=&#34;https://johnvansickle.com/ffmpeg/&#34;&gt;https://johnvansickle.com/ffmpeg/&lt;/a&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>
