@@ -1,0 +1,68 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Archery Support System – Relaed Research</title>
+    <link>https://archery-support.github.io/docs/related-research/</link>
+    <description>Recent content in Relaed Research on Archery Support System</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    
+	  <atom:link href="https://archery-support.github.io/docs/related-research/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: Build from sources</title>
+      <link>https://archery-support.github.io/docs/related-research/build-from-source/</link>
+      <pubDate>Tue, 05 Jan 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://archery-support.github.io/docs/related-research/build-from-source/</guid>
+      <description>
+        
+        
+        
+
+&lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;
+&lt;p&gt;Currently these instructions only work for Unix-based systems (Linux, macOS, BSD, &amp;hellip;). If you are getting
+trouble trying to build Navidrome in a Windows system, please join our &lt;a href=&#34;https://discord.gg/xh7j7yF&#34;&gt;Discord server&lt;/a&gt;
+and ask for help, we will be glad to assist you&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;If you can&amp;rsquo;t find a &lt;a href=&#34;https://github.com/navidrome/navidrome/releases&#34;&gt;pre-built binary&lt;/a&gt; for your platform,
+you should open an &lt;a href=&#34;https://github.com/navidrome/navidrome/issues&#34;&gt;issue in the project&amp;rsquo;s GitHub page&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;If you don&amp;rsquo;t want to wait, you can try to build the binary yourself, with the following steps.&lt;/p&gt;
+&lt;p&gt;First, you will need to install &lt;a href=&#34;https://golang.org/doc/install&#34;&gt;Go 1.19+&lt;/a&gt; and
+&lt;a href=&#34;http://nodejs.org&#34;&gt;Node 16&lt;/a&gt;. The setup is very strict, and the steps below only work with
+these versions (enforced in the Makefile). Make sure to add &lt;code&gt;$GOPATH/bin&lt;/code&gt; to your &lt;code&gt;PATH&lt;/code&gt; as described
+in the &lt;a href=&#34;https://golang.org/doc/gopath_code.html#GOPATH&#34;&gt;official Go site&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;You&amp;rsquo;ll also need to install the &lt;a href=&#34;http://taglib.org&#34;&gt;TagLib&lt;/a&gt; library:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Debian/Ubuntu: &lt;code&gt;sudo apt install libtag1-dev&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Arch Linux: &lt;code&gt;pacman -S taglib&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;macOS: &lt;code&gt;brew install taglib&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;FreeBSD: &lt;code&gt;pkg install taglib&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;For other platforms check their &lt;a href=&#34;https://github.com/taglib/taglib/blob/master/INSTALL.md&#34;&gt;installation instructions&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;After the prerequisites above are installed, clone Navidrome&amp;rsquo;s repository and build it:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ git clone https://github.com/navidrome/navidrome
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ &lt;span style=&#34;color:#204a87&#34;&gt;cd&lt;/span&gt; navidrome
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ make setup        &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Install build dependencies&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ make buildall     &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Build UI and server, generates a single executable&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;On FreeBSD you have to use &lt;code&gt;gmake&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ git clone https://github.com/navidrome/navidrome
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ &lt;span style=&#34;color:#204a87&#34;&gt;cd&lt;/span&gt; navidrome
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ gmake setup        &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Install build dependencies&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ gmake buildall     &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Build UI and server, generates a single executable&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This will generate the &lt;code&gt;navidrome&lt;/code&gt; executable binary in the project&amp;rsquo;s root folder.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;NOTE:&lt;/strong&gt; Remember to install &lt;a href=&#34;https://ffmpeg.org/download.html&#34;&gt;ffmpeg&lt;/a&gt; in your system, a requirement for Navidrome to work
+properly. You may find the latest static build for your platform here: &lt;a href=&#34;https://johnvansickle.com/ffmpeg/&#34;&gt;https://johnvansickle.com/ffmpeg/&lt;/a&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>
